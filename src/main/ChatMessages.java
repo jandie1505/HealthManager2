@@ -23,6 +23,9 @@ public class ChatMessages {
     public static String sethealthMessage;
     public static String sethealthTargetMessage;
 
+    public static String sethungerMessage;
+    public static String sethungerTargetMessage;
+
     public static void load(){
         prefix = config.getString("prefix");
         nopermission = ChatMessages.prefix + config.getString("nopermission");
@@ -52,5 +55,8 @@ public class ChatMessages {
 
         sethealthMessage = ChatMessages.prefix + config.getString("sethealthmessage");
         sethealthTargetMessage = ChatMessages.prefix + config.getString("sethealthtargetmessage");
+
+        sethungerMessage = ChatMessages.prefix + config.getString("sethungermessage");
+        sethungerTargetMessage = ChatMessages.prefix + config.getString("sethungertargetmessage");
     }
 }

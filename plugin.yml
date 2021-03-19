@@ -12,3 +12,6 @@ commands:
   sethealth:
     description: Set the lives of a specific player
     usage: /sethealth <Player> <Amount>
+  sethunger:
+    description: Set the food level of a specific player
+    usage: /sethunger <Player> <Amount>
