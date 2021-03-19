@@ -1,0 +1,20 @@
+# ----- HealthManager2 Configuration File -----
+# --- Config ---
+
+# - Ignore Server Operators -
+# If this is enabled, the plugin will allow Server Operators to use all commands.
+# If this is disabled, only players with the permission will be able to use the commands.
+# Set this to true if you have a permissions system. Set this to false if you don't have one.
+ignoreop: false
+
+# - Send Message to the Target -
+# If this is enabled, the target player will see a message if he gets healed or modified.
+# If this is disabled, only the executor will see a message.
+sendmessagestotarget: false
+
+# --- Messages ---
+prefix: "§6HealthManager2 §7| §e"
+nopermission: "§cYou don't have the permission to execute this command"
+playernotfound: "§cThe player was not found"
+healmessage: "§eYou have been successfully healed"
+healmessageothers: "§b{player} §ewas successfully healed"
