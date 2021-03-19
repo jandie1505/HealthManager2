@@ -8,4 +8,7 @@ commands:
     usage: /healthmanager
   heal:
     description: Heal yourself (or any other player)
-    usage: /heal (<Spieler>)
+    usage: /heal (<Player>)
+  sethealth:
+    description: Set the lives of a specific player
+    usage: /sethealth <Player> <Amount>

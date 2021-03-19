@@ -8,20 +8,27 @@ public class ChatMessages {
     public static String prefix;
     public static String nopermission;
     public static String commandNotFound;
+    public static String wrongSyntax;
+    public static String playernotfound;
 
     public static String stateMessage1;
     public static String stateMessage2;
 
     public static String helpMessage[] = new String[13];
 
-    public static String playernotfound;
+
     public static String healmessage;
     public static String healmessageothers;
+
+    public static String sethealthMessage;
+    public static String sethealthTargetMessage;
 
     public static void load(){
         prefix = config.getString("prefix");
         nopermission = ChatMessages.prefix + config.getString("nopermission");
         commandNotFound = ChatMessages.prefix + config.getString("commandnotfound");
+        wrongSyntax = ChatMessages.prefix + config.getString("wrongsyntax");
+        playernotfound = ChatMessages.prefix + config.getString("playernotfound");
 
         stateMessage1 = ChatMessages.prefix + "§6HealthManager2 (" + Main.version + ") by jandie1505";
         stateMessage2 = ChatMessages.prefix + "§eUse /healthmanager help for more information";
@@ -40,8 +47,10 @@ public class ChatMessages {
         helpMessage[11] = ChatMessages.prefix + "§7/saturation ([Player]) - Turn on/off saturation mode for yourself (or a specific player)";
         helpMessage[12] = ChatMessages.prefix + "§7/god ([Player]) - Turn on/off god mode for yourself (or a specific player)";
 
-                healmessage = ChatMessages.prefix + config.getString("healmessage");
+        healmessage = ChatMessages.prefix + config.getString("healmessage");
         healmessageothers = ChatMessages.prefix + config.getString("healmessageothers");
-        playernotfound = ChatMessages.prefix + config.getString("playernotfound");
+
+        sethealthMessage = ChatMessages.prefix + config.getString("sethealthmessage");
+        sethealthTargetMessage = ChatMessages.prefix + config.getString("sethealthtargetmessage");
     }
 }
