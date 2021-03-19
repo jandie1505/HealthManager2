@@ -5,10 +5,13 @@ import commands.CommandHealthmanager;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.Objects;
+
 public class Main extends JavaPlugin {
     public static String version = "2.0";
 
     private static Main plugin;
+
     public static boolean ignoreop;
 
     public void onEnable(){
@@ -16,8 +19,8 @@ public class Main extends JavaPlugin {
         Config.load();
         ChatMessages.load();
         ignoreop = Config.ignoreOp;
-        getCommand("healthmanager").setExecutor(new CommandHealthmanager());
-        getCommand("heal").setExecutor(new CommandHeal());
+        Objects.requireNonNull(getCommand("healthmanager")).setExecutor(new CommandHealthmanager());
+        Objects.requireNonNull(getCommand("heal")).setExecutor(new CommandHeal());
         ConsoleMessages.defaultMessage("HealthManager2 was successfully enabled");
     }
 

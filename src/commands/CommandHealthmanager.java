@@ -22,6 +22,6 @@ public class CommandHealthmanager implements CommandExecutor {
         }
 
 
-        return false;
+        return true;
     }
 }
