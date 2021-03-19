@@ -22,3 +22,5 @@ Health Manager 2 is a Minecraft plugin that lets you view and edit health, hunge
 | /god [Player] |healthmanager.god.others  | Turn on/off the god mode for a specific player |
 ## Config
 The Config.yml is located in the Healthmanager2.jar. Open the jarfile with a program like 7-zip and edit the config.yml.
+## Download
+The Download will be available at the releases page and on spigotmc.org when the plugin is finished.
