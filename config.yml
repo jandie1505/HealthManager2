@@ -15,6 +15,7 @@ sendmessagestotarget: false
 # --- Messages ---
 prefix: "§6HealthManager2 §7| §e"
 nopermission: "§cYou don't have the permission to execute this command"
+commandnotfound: "§cThis subcommand does not exist"
 playernotfound: "§cThe player was not found"
 healmessage: "§eYou have been successfully healed"
 healmessageothers: "§b{player} §ewas successfully healed"
