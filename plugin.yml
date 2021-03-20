@@ -10,15 +10,20 @@ commands:
   heal:
     description: Heal yourself (or any other player)
     usage: /heal (<Player>)
+    permission: healthmanager.heal
   sethealth:
     description: Set the lives of a specific player
     usage: /sethealth <Player> <Amount>
+    permission: healthmanager.sethealth
   sethunger:
     description: Set the food level of a specific player
     usage: /sethunger <Player> <Amount>
+    permission: healthmanager.sethunger
   gethealth:
     description: Shows the amount of lives of a specific player
     usage: /gethealth <Player>
+    permission: healthmanager.gethealth
   gethunger:
     description: Shows the food level of a specific player
     usage: /gethunger <Player>
+    permission: healthmanager.gethunger
