@@ -15,3 +15,9 @@ commands:
   sethunger:
     description: Set the food level of a specific player
     usage: /sethunger <Player> <Amount>
+  gethealth:
+    description: Shows the amount of lives of a specific player
+    usage: /gethealth <Player>
+  gethunger:
+    description: Shows the food level of a specific player
+    usage: /gethunger <Player>

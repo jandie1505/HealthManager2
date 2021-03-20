@@ -29,6 +29,10 @@ public class ChatMessages {
     public static String sethungerMessage;
     public static String sethungerTargetMessage;
 
+    public static String gethealthMessage;
+
+    public static String gethungerMessage;
+
 
 
 
@@ -93,6 +97,32 @@ public class ChatMessages {
         return result;
     }
 
+    public static String getGethealthMessage(String playerName, int lives){
+        String message;
+        String result;
+        message = gethealthMessage;
+        Map<String, String> replacementStrings = Map.of(
+                "PLAYER", playerName,
+                "LIVES", String.valueOf(lives)
+        );
+        StringSubstitutor sub = new StringSubstitutor(replacementStrings, "{", "}");
+        result = sub.replace(message);
+        return result;
+    }
+
+    public static String getGethungerMessage(String playerName, int foodLevel){
+        String message;
+        String result;
+        message = gethungerMessage;
+        Map<String, String> replacementStrings = Map.of(
+                "PLAYER", playerName,
+                "FOODLEVEL", String.valueOf(foodLevel)
+        );
+        StringSubstitutor sub = new StringSubstitutor(replacementStrings, "{", "}");
+        result = sub.replace(message);
+        return result;
+    }
+
 
 
 
@@ -141,5 +171,9 @@ public class ChatMessages {
 
         sethungerMessage = ChatMessages.prefix + config.getString("sethungermessage");
         sethungerTargetMessage = ChatMessages.prefix + config.getString("sethungertargetmessage");
+
+        gethealthMessage = ChatMessages.prefix + config.getString("gethealthmessage");
+
+        gethungerMessage = ChatMessages.prefix + config.getString("gethungermessage");
     }
 }
