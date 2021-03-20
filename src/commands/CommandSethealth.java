@@ -8,6 +8,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
 import java.util.concurrent.ExecutionException;
@@ -39,6 +40,8 @@ public class CommandSethealth implements CommandExecutor {
             } else {
                 p.sendMessage(ChatMessages.nopermission);
             }
+        } else if(sender instanceof ConsoleCommandSender){
+            ConsoleMessages.defaultMessage("This command must be executed by a player");
         }
         return true;
     }

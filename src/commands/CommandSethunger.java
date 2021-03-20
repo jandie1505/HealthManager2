@@ -2,11 +2,13 @@ package commands;
 
 import main.ChatMessages;
 import main.Config;
+import main.ConsoleMessages;
 import main.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
 public class CommandSethunger implements CommandExecutor {
@@ -36,6 +38,8 @@ public class CommandSethunger implements CommandExecutor {
             } else {
                 p.sendMessage(ChatMessages.nopermission);
             }
+        } else if(sender instanceof ConsoleCommandSender){
+            ConsoleMessages.defaultMessage("This command must be executed by a player");
         }
         return true;
     }
