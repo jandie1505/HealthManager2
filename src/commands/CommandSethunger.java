@@ -22,9 +22,9 @@ public class CommandSethunger implements CommandExecutor {
                         int setHunger = Integer.parseInt(args[1]);
                         if(target != null){
                             target.setFoodLevel(setHunger);
-                            p.sendMessage(ChatMessages.sethungerMessage);
+                            p.sendMessage(ChatMessages.getSethungerMessage(target.getName(), setHunger));
                             if(Config.sendMessagesToTarget){
-                                target.sendMessage(ChatMessages.sethungerTargetMessage);
+                                target.sendMessage(ChatMessages.getSethungerTargetMessage(setHunger));
                             }
                         } else {
                             p.sendMessage(ChatMessages.playernotfound);

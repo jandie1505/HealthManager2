@@ -36,7 +36,7 @@ public class CommandHeal implements CommandExecutor {
                         if(Config.sendMessagesToTarget){
                             target.sendMessage(ChatMessages.healmessage);
                         }
-                        p.sendMessage(ChatMessages.healmessageothers);
+                        p.sendMessage(ChatMessages.getHealMessageOthers(p.getName()));
                     } else {
                         p.sendMessage(ChatMessages.playernotfound);
                     }

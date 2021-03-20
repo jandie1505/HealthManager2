@@ -1,6 +1,9 @@
 package main;
 
+import org.apache.commons.text.StringSubstitutor;
 import org.bukkit.configuration.file.FileConfiguration;
+
+import java.util.Map;
 
 public class ChatMessages {
     static FileConfiguration config = Main.getPlugin().getConfig();
@@ -25,6 +28,86 @@ public class ChatMessages {
 
     public static String sethungerMessage;
     public static String sethungerTargetMessage;
+
+
+
+
+
+    public static String getHealMessageOthers(String playerName){
+        String message;
+        String result;
+        message = healmessageothers;
+        Map<String, String> replacementStrings = Map.of(
+                "PLAYER", playerName
+        );
+        StringSubstitutor sub = new StringSubstitutor(replacementStrings, "{", "}");
+        result = sub.replace(message);
+        return result;
+    }
+
+    public static String getSethealthMessage(String playerName, int lives){
+        String message;
+        String result;
+        message = sethealthMessage;
+        Map<String, String> replacementStrings = Map.of(
+                "PLAYER", playerName,
+                "LIVES", String.valueOf(lives)
+        );
+        StringSubstitutor sub = new StringSubstitutor(replacementStrings, "{", "}");
+        result = sub.replace(message);
+        return result;
+    }
+    public static String getSethealthTargetMessage(int lives){
+        String message;
+        String result;
+        message = sethealthTargetMessage;
+        Map<String, String> replacementStrings = Map.of(
+                "LIVES", String.valueOf(lives)
+        );
+        StringSubstitutor sub = new StringSubstitutor(replacementStrings, "{", "}");
+        result = sub.replace(message);
+        return result;
+    }
+
+    public static String getSethungerMessage(String playerName, int foodLevel){
+        String message;
+        String result;
+        message = sethungerMessage;
+        Map<String, String> replacementStrings = Map.of(
+                "PLAYER", playerName,
+                "FOODLEVEL", String.valueOf(foodLevel)
+        );
+        StringSubstitutor sub = new StringSubstitutor(replacementStrings, "{", "}");
+        result = sub.replace(message);
+        return result;
+    }
+    public static String getSethungerTargetMessage(int foodLevel){
+        String message;
+        String result;
+        message = sethungerTargetMessage;
+        Map<String, String> replacementStrings = Map.of(
+                "FOODLEVEL", String.valueOf(foodLevel)
+        );
+        StringSubstitutor sub = new StringSubstitutor(replacementStrings, "{", "}");
+        result = sub.replace(message);
+        return result;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public static void load(){
         prefix = config.getString("prefix");

@@ -49,6 +49,7 @@ public class CommandHealthmanager implements CommandExecutor {
                         ChatMessages.load();
                         ConsoleMessages.defaultMessage("Reload complete");
                     }
+                    break;
                 default:
 
                     if(sender instanceof Player){
@@ -57,6 +58,7 @@ public class CommandHealthmanager implements CommandExecutor {
                     } else if(sender instanceof ConsoleCommandSender) {
                         ConsoleMessages.defaultMessage("Command not found");
                     }
+                    break;
             }
         }
 

@@ -24,9 +24,9 @@ public class CommandSethealth implements CommandExecutor {
                         int setHealth = Integer.parseInt(args[1]);
                         if(target != null){
                             target.setHealth(setHealth);
-                            p.sendMessage(ChatMessages.sethealthMessage);
+                            p.sendMessage(ChatMessages.getSethealthMessage(target.getName(), setHealth));
                             if(Config.sendMessagesToTarget){
-                                target.sendMessage(ChatMessages.sethealthTargetMessage);
+                                target.sendMessage(ChatMessages.getSethealthTargetMessage(setHealth));
                             }
                         } else {
                             p.sendMessage(ChatMessages.playernotfound);

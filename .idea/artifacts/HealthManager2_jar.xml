@@ -6,6 +6,8 @@
       <element id="extracted-dir" path="$USER_HOME$/Downloads/spigot-api-1.16.5-R0.1-20210316.210505-33.jar" path-in-jar="/" />
       <element id="file-copy" path="$PROJECT_DIR$/plugin.yml" />
       <element id="file-copy" path="$PROJECT_DIR$/config.yml" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/jar_files/commons-text-1.9.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/jar_files/commons-lang3-3.11.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

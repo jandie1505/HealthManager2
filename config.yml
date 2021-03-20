@@ -10,7 +10,7 @@ ignoreop: false
 # - Send Message to the Target -
 # If this is enabled, the target player will see a message if he gets healed or modified.
 # If this is disabled, only the executor will see a message.
-sendmessagestotarget: false
+sendmessagestotarget: true
 
 # --- Messages ---
 prefix: "§6HealthManager2 §7| §e"
@@ -19,8 +19,8 @@ commandnotfound: "§cThis subcommand does not exist"
 wrongsyntax: "§cWrong syntax. Use /healthmanager help for more information."
 playernotfound: "§cThe player was not found"
 healmessage: "§eYou have been successfully healed"
-healmessageothers: "§b{player} §ewas successfully healed"
-sethealthmessage: "§eYou changed the lives of §b{player} §eto §b{lives}"
-sethealthtargetmessage: "§eYour lives were set to §b{lives}"
-sethungermessage: "§eYou changed the food level of §b{player} §eto §b{food}"
-sethungertargetmessage: "§eYour food level was set to §b{lives}"
+healmessageothers: "§b{PLAYER} §ewas successfully healed"
+sethealthmessage: "§eYou changed the lives of §b{PLAYER} §eto §b{LIVES}"
+sethealthtargetmessage: "§eYour lives were set to §b{LIVES}"
+sethungermessage: "§eYou changed the food level of §b{PLAYER} §eto §b{FOODLEVEL}"
+sethungertargetmessage: "§eYour food level was set to §b{FOODLEVEL}"
