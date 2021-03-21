@@ -7,11 +7,13 @@ Health Manager 2 is a Minecraft plugin that lets you view and edit health, hunge
 | /healthmanager | No Permission | Status Command |
 | /healthmanager help | healthmanager.help | List Commands |
 | /healthmanager reload | healthmanager.reload | Reload Config |
+| /healthmanager reset [Player] | healthmanager.reset | Reset modifiers of a specific player |
 | /heal | healthmanager.heal | Heal (and feed) yourself |
 | /heal [Player] | healthmanager.heal.others | Heal (and feed) a specific player |
 | /sethealth [Player] [Amount] | healthmanager.sethealth | Set the health of a specific player |
 | /setmaxhealth [Player] [Amount] | healthmanager.setmaxhealth | Set the max health of a specific player 
 | /gethealth [Player] | healthmanager.gethealth | See the health of a specific player |
+| /getmaxhealth [Player] | healthmanager.getmaxhealth | See the max health of a specific player |
 | /feed | healthmanager.feed | Feed yourself |
 | /feed [Player] | healthmanager.feed.others | Feed a specific player |
 | /sethunger [Player] [Amount] | healthmanager.sethunger | Set the food level of a specific player |
