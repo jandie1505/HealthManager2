@@ -43,3 +43,7 @@ commands:
     description: Shows the saturation level of a specific player
     usage: /getsaturation <Player>
     permission: healthmanager.getsaturation
+  feed:
+    description: Feed yourself (or any other player)
+    usage: /feed (<Player>)
+    permission: healthmanager.feed

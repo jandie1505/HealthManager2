@@ -46,6 +46,9 @@ public class ChatMessages {
 
     public static String getsaturationMessage;
 
+    public static String feedMessage;
+    public static String feedMessageOthers;
+
 
 
 
@@ -222,7 +225,17 @@ public class ChatMessages {
         return result;
     }
 
-
+    public static String getFeedMessageOthers(String playerName){
+        String message;
+        String result;
+        message = feedMessageOthers;
+        Map<String, String> replacementStrings = Map.of(
+                "PLAYER", playerName
+        );
+        StringSubstitutor sub = new StringSubstitutor(replacementStrings, "{", "}");
+        result = sub.replace(message);
+        return result;
+    }
 
 
 
@@ -280,5 +293,8 @@ public class ChatMessages {
         setsaturationTargetMessage = ChatMessages.prefix + config.getString("setsaturationtargetmessage");
 
         getsaturationMessage = ChatMessages.prefix + config.getString("getsaturationmessage");
+
+        feedMessage = ChatMessages.prefix + config.get("feedmessage");
+        feedMessageOthers = ChatMessages.prefix + config.get("feedmessageothers");
     }
 }
