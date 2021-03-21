@@ -35,3 +35,11 @@ commands:
     description: Shows the max health of a specific player
     usage: /getmaxhealth <Player>
     permission: healthmanager.getmaxhealth
+  setsaturation:
+    description: Set the saturation level for a specific player
+    usage: /setsaturation <Player> <Amount>
+    permission: healthmanager.setsaturation
+  getsaturation:
+    description: Shows the saturation level of a specific player
+    usage: /getsaturation <Player>
+    permission: healthmanager.getsaturation

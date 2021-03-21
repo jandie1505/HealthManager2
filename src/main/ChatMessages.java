@@ -41,6 +41,11 @@ public class ChatMessages {
 
     public static String getmaxhealthMessage;
 
+    public static String setsaturationMessage;
+    public static String setsaturationTargetMessage;
+
+    public static String getsaturationMessage;
+
 
 
 
@@ -180,12 +185,42 @@ public class ChatMessages {
         return result;
     }
 
+    public static String getSetsaturationMessage(String playerName, int saturationLevel){
+        String message;
+        String result;
+        message = setsaturationMessage;
+        Map<String, String> replacementStrings = Map.of(
+                "PLAYER", playerName,
+                "SATURATIONLEVEL", String.valueOf(saturationLevel)
+        );
+        StringSubstitutor sub = new StringSubstitutor(replacementStrings, "{", "}");
+        result = sub.replace(message);
+        return result;
+    }
+    public static String getSetsaturationTargetMessage(int saturationLevel){
+        String message;
+        String result;
+        message = setsaturationTargetMessage;
+        Map<String, String> replacementStrings = Map.of(
+                "SATURATIONLEVEL", String.valueOf(saturationLevel)
+        );
+        StringSubstitutor sub = new StringSubstitutor(replacementStrings, "{", "}");
+        result = sub.replace(message);
+        return result;
+    }
 
-
-
-
-
-
+    public static String getGetsaturationMessage(String playerName, int saturationLevel){
+        String message;
+        String result;
+        message = getsaturationMessage;
+        Map<String, String> replacementStrings = Map.of(
+                "PLAYER", playerName,
+                "SATURATIONLEVEL", String.valueOf(saturationLevel)
+        );
+        StringSubstitutor sub = new StringSubstitutor(replacementStrings, "{", "}");
+        result = sub.replace(message);
+        return result;
+    }
 
 
 
@@ -240,5 +275,10 @@ public class ChatMessages {
         setmaxhealthTargetMessage = ChatMessages.prefix + config.getString("setmaxhealthtargetmessage");
 
         getmaxhealthMessage = ChatMessages.prefix + config.getString("getmaxhealthmessage");
+
+        setsaturationMessage = ChatMessages.prefix + config.getString("setsaturationmessage");
+        setsaturationTargetMessage = ChatMessages.prefix + config.getString("setsaturationtargetmessage");
+
+        getsaturationMessage = ChatMessages.prefix + config.getString("getsaturationmessage");
     }
 }
