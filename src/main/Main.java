@@ -25,6 +25,7 @@ public class Main extends JavaPlugin {
         Objects.requireNonNull(getCommand("gethealth")).setExecutor(new CommandGethealth());
         Objects.requireNonNull(getCommand("gethunger")).setExecutor(new CommandGethunger());
         Objects.requireNonNull(getCommand("setmaxhealth")).setExecutor(new CommandSetmaxhealth());
+        Objects.requireNonNull(getCommand("getmaxhealth")).setExecutor(new CommandGetmaxhealth());
 
         ConsoleMessages.defaultMessage("HealthManager2 was successfully enabled");
     }
