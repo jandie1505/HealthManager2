@@ -26,3 +26,5 @@ sethungermessage: "§eYou changed the food level of §b{PLAYER} §eto §b{FOODLE
 sethungertargetmessage: "§eYour food level was set to §b{FOODLEVEL}"
 gethealthmessage: "§b{PLAYER} §ehas §b{LIVES} §elives"
 gethungermessage: "§b{PLAYER} §ehas a food level of §b{FOODLEVEL}"
+setmaxhealthmessage: "§eYou changed the max health of §b{PLAYER} §eto §e{MAXHEALTH}"
+setmaxhealthtargetmessage: "§eYour max health were set to §b{MAXHEALTH}"

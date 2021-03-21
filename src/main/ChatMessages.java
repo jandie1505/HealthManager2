@@ -33,6 +33,9 @@ public class ChatMessages {
 
     public static String gethungerMessage;
 
+    public static String setmaxhealthMessage;
+    public static String setmaxhealthTargetMessage;
+
 
 
 
@@ -123,6 +126,30 @@ public class ChatMessages {
         return result;
     }
 
+    public static String getSetmaxhealthMessage(String playerName, int maxHealth){
+        String message;
+        String result;
+        message = setmaxhealthMessage;
+        Map<String, String> replacementStrings = Map.of(
+                "PLAYER", playerName,
+                "MAXHEALTH", String.valueOf(maxHealth)
+        );
+        StringSubstitutor sub = new StringSubstitutor(replacementStrings, "{", "}");
+        result = sub.replace(message);
+        return result;
+    }
+    public static String getSetmaxhealthTargetMessage(int maxHealth){
+        String message;
+        String result;
+        message = setmaxhealthTargetMessage;
+        Map<String, String> replacementStrings = Map.of(
+                "MAXHEALTH", String.valueOf(maxHealth)
+        );
+        StringSubstitutor sub = new StringSubstitutor(replacementStrings, "{", "}");
+        result = sub.replace(message);
+        return result;
+    }
+
 
 
 
@@ -175,5 +202,8 @@ public class ChatMessages {
         gethealthMessage = ChatMessages.prefix + config.getString("gethealthmessage");
 
         gethungerMessage = ChatMessages.prefix + config.getString("gethungermessage");
+
+        setmaxhealthMessage = ChatMessages.prefix + config.getString("setmaxhealthmessage");
+        setmaxhealthTargetMessage = ChatMessages.prefix + config.getString("setmaxhealthtargetmessage");
     }
 }

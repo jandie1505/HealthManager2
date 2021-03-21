@@ -1,7 +1,6 @@
 package main;
 
 import commands.*;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Objects;
@@ -25,6 +24,7 @@ public class Main extends JavaPlugin {
         Objects.requireNonNull(getCommand("sethunger")).setExecutor(new CommandSethunger());
         Objects.requireNonNull(getCommand("gethealth")).setExecutor(new CommandGethealth());
         Objects.requireNonNull(getCommand("gethunger")).setExecutor(new CommandGethunger());
+        Objects.requireNonNull(getCommand("setmaxhealth")).setExecutor(new CommandSetmaxhealth());
 
         ConsoleMessages.defaultMessage("HealthManager2 was successfully enabled");
     }

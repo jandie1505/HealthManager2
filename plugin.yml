@@ -27,3 +27,7 @@ commands:
     description: Shows the food level of a specific player
     usage: /gethunger <Player>
     permission: healthmanager.gethunger
+  setmaxhealth:
+    description: Set the max health for a specific player
+    usage: /setmaxhealth <Player> <Amount>
+    permission: healthmanager.setmaxhealth
