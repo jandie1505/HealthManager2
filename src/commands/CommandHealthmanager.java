@@ -4,6 +4,7 @@ import main.ChatMessages;
 import main.Config;
 import main.ConsoleMessages;
 import main.Main;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -40,18 +41,61 @@ public class CommandHealthmanager implements CommandExecutor {
                 case "reload":
                     if(sender instanceof Player){
                         Player p = (Player) sender;
-                        if(p.hasPermission("healthmanager.reload"))
+                        if(p.hasPermission("healthmanager.reload")){
                             Config.load();
                             ChatMessages.load();
                             p.sendMessage(ChatMessages.prefix + "Reload complete");
+                        }
+
                     } else if(sender instanceof ConsoleCommandSender) {
                         Config.load();
                         ChatMessages.load();
                         ConsoleMessages.defaultMessage("Reload complete");
                     }
                     break;
+                case "reset":
+                    if(sender instanceof Player){
+                        Player p = (Player) sender;
+                        if(!Main.ignoreop && p.isOp() || p.hasPermission("healthmanager.reset")){
+                            p.sendMessage(ChatMessages.wrongSyntax);
+                        } else {
+                            p.sendMessage(ChatMessages.nopermission);
+                        }
+                    }
                 default:
 
+                    if(sender instanceof Player){
+                        Player p = (Player) sender;
+                        p.sendMessage(ChatMessages.commandNotFound);
+                    } else if(sender instanceof ConsoleCommandSender) {
+                        ConsoleMessages.defaultMessage("Command not found");
+                    }
+                    break;
+            }
+        } else if(args.length == 2){
+            switch (args[0]){
+                case "reset":
+                    if(sender instanceof Player){
+                        Player p = (Player) sender;
+                        if(!Main.ignoreop && p.isOp() || p.hasPermission("healthmanager.reset")){
+                            Player target = Bukkit.getPlayer(args[1]);
+                            try {
+                                if(target != null){
+                                    target.resetMaxHealth();
+                                    p.sendMessage(ChatMessages.getPlayerreset(target.getName()));
+                                    if(Config.sendMessagesToTarget){
+                                        target.sendMessage(ChatMessages.playerresettarget);
+                                    }
+                                } else {
+                                    p.sendMessage(ChatMessages.playernotfound);
+                                }
+                            } catch(Exception e){
+                                p.sendMessage(ChatMessages.wrongSyntax);
+                            }
+                        }
+                    }
+                    break;
+                default:
                     if(sender instanceof Player){
                         Player p = (Player) sender;
                         p.sendMessage(ChatMessages.commandNotFound);

@@ -14,6 +14,9 @@ public class ChatMessages {
     public static String wrongSyntax;
     public static String playernotfound;
 
+    public static String playerreset;
+    public static String playerresettarget;
+
     public static String stateMessage1;
     public static String stateMessage2;
 
@@ -39,6 +42,18 @@ public class ChatMessages {
 
 
 
+
+    public static String getPlayerreset(String playerName){
+        String message;
+        String result;
+        message = playerreset;
+        Map<String, String> replacementStrings = Map.of(
+                "PLAYER", playerName
+        );
+        StringSubstitutor sub = new StringSubstitutor(replacementStrings, "{", "}");
+        result = sub.replace(message);
+        return result;
+    }
 
     public static String getHealMessageOthers(String playerName){
         String message;
@@ -172,6 +187,9 @@ public class ChatMessages {
         commandNotFound = ChatMessages.prefix + config.getString("commandnotfound");
         wrongSyntax = ChatMessages.prefix + config.getString("wrongsyntax");
         playernotfound = ChatMessages.prefix + config.getString("playernotfound");
+
+        playerreset = ChatMessages.prefix + config.getString("playerreset");
+        playerresettarget = ChatMessages.prefix + config.getString("playerresettarget");
 
         stateMessage1 = ChatMessages.prefix + "§6HealthManager2 (" + Main.version + ") by jandie1505";
         stateMessage2 = ChatMessages.prefix + "§eUse /healthmanager help for more information";
