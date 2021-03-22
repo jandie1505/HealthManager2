@@ -54,7 +54,10 @@ public class ChatMessages {
     public static String saturationModeEnabledOthersMessage;
     public static String saturationModeDisabledOthersMessage;
 
-
+    public static String godmodeEnabledMessage;
+    public static String godmodeDisabledMessage;
+    public static String godmodeEnabledOthersMessage;
+    public static String godmodeDisabledOthersMessage;
 
 
 
@@ -265,8 +268,28 @@ public class ChatMessages {
         return result;
     }
 
-
-
+    public static String getGodmodeEnabledOthersMessage(String playerName){
+        String message;
+        String result;
+        message = godmodeEnabledOthersMessage;
+        Map<String, String> replacementStrings = Map.of(
+                "PLAYER", playerName
+        );
+        StringSubstitutor sub = new StringSubstitutor(replacementStrings, "{", "}");
+        result = sub.replace(message);
+        return result;
+    }
+    public static String getGodmodeDisabledOthersMessage(String playerName){
+        String message;
+        String result;
+        message = godmodeDisabledOthersMessage;
+        Map<String, String> replacementStrings = Map.of(
+                "PLAYER", playerName
+        );
+        StringSubstitutor sub = new StringSubstitutor(replacementStrings, "{", "}");
+        result = sub.replace(message);
+        return result;
+    }
 
 
 
@@ -327,5 +350,10 @@ public class ChatMessages {
         saturationModeDisabledMessage = ChatMessages.prefix + config.get("saturationmodedisabledmessage");
         saturationModeEnabledOthersMessage = ChatMessages.prefix + config.get("saturationmodeenableothersmessage");
         saturationModeDisabledOthersMessage = ChatMessages.prefix + config.get("saturationmodedisableothersmessage");
+
+        godmodeEnabledMessage = ChatMessages.prefix + config.get("godmodeenabledmessage");
+        godmodeDisabledMessage = ChatMessages.prefix + config.get("godmodedisabledmessage");
+        godmodeEnabledOthersMessage = ChatMessages.prefix + config.get("godmodeenabledothersmessage");
+        godmodeDisabledOthersMessage = ChatMessages.prefix + config.get("godmodedisabledothersmessage");
     }
 }

@@ -83,6 +83,7 @@ public class CommandHealthmanager implements CommandExecutor {
                                 if(target != null){
                                     target.resetMaxHealth();
                                     tasks.TaskSaturationmode.resetPlayer(target);
+                                    tasks.TaskGodmode.resetPlayer(target);
                                     p.sendMessage(ChatMessages.getPlayerreset(target.getName()));
                                     if(Config.sendMessagesToTarget){
                                         target.sendMessage(ChatMessages.playerresettarget);

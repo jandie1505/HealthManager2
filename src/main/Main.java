@@ -33,6 +33,7 @@ public class Main extends JavaPlugin {
         Objects.requireNonNull(getCommand("getsaturation")).setExecutor(new CommandGetsaturation());
         Objects.requireNonNull(getCommand("feed")).setExecutor(new CommandFeed());
         Objects.requireNonNull(getCommand("saturationmode")).setExecutor(new CommandSaturationmode());
+        Objects.requireNonNull(getCommand("god")).setExecutor(new CommandGod());
 
         ConsoleMessages.defaultMessage("HealthManager2 was successfully enabled");
 
@@ -40,6 +41,7 @@ public class Main extends JavaPlugin {
             @Override
             public void run() {
                 tasks.TaskSaturationmode.run();
+                tasks.TaskGodmode.run();
             }
         }, 0, 1);
     }

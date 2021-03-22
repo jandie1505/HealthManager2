@@ -48,6 +48,10 @@ commands:
     usage: /feed (<Player>)
     permission: healthmanager.feed
   saturationmode:
-    description: Turn Saturationmode on/off for yourself (other players)
+    description: Turn Saturationmode on/off for yourself (and other players)
     usage: /saturationmode (<Player>)
     permission: healthmanager.saturationmode
+  god:
+    description: Turn Godmode on/off for yourself (and other players)
+    usage: /god (<Player>)
+    permission: healthmanager.godmode
