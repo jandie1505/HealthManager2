@@ -47,3 +47,7 @@ commands:
     description: Feed yourself (or any other player)
     usage: /feed (<Player>)
     permission: healthmanager.feed
+  saturationmode:
+    description: Turn Saturationmode on/off for yourself (other players)
+    usage: /saturationmode (<Player>)
+    permission: healthmanager.saturationmode

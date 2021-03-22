@@ -1,6 +1,7 @@
 package main;
 
 import commands.*;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Objects;
@@ -11,6 +12,8 @@ public class Main extends JavaPlugin {
     private static Main plugin;
 
     public static boolean ignoreop;
+
+    private int mainTask;
 
     public void onEnable(){
         plugin = this;
@@ -29,8 +32,16 @@ public class Main extends JavaPlugin {
         Objects.requireNonNull(getCommand("setsaturation")).setExecutor(new CommandSetsaturation());
         Objects.requireNonNull(getCommand("getsaturation")).setExecutor(new CommandGetsaturation());
         Objects.requireNonNull(getCommand("feed")).setExecutor(new CommandFeed());
+        Objects.requireNonNull(getCommand("saturationmode")).setExecutor(new CommandSaturationmode());
 
         ConsoleMessages.defaultMessage("HealthManager2 was successfully enabled");
+
+        mainTask = Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
+            @Override
+            public void run() {
+                tasks.TaskSaturationmode.run();
+            }
+        }, 0, 1);
     }
 
     public static Main getPlugin(){

@@ -49,6 +49,11 @@ public class ChatMessages {
     public static String feedMessage;
     public static String feedMessageOthers;
 
+    public static String saturationModeEnabledMessage;
+    public static String saturationModeDisabledMessage;
+    public static String saturationModeEnabledOthersMessage;
+    public static String saturationModeDisabledOthersMessage;
+
 
 
 
@@ -237,7 +242,28 @@ public class ChatMessages {
         return result;
     }
 
-
+    public static String getSaturationModeEnabledOthersMessage(String playerName){
+        String message;
+        String result;
+        message = saturationModeEnabledOthersMessage;
+        Map<String, String> replacementStrings = Map.of(
+                "PLAYER", playerName
+        );
+        StringSubstitutor sub = new StringSubstitutor(replacementStrings, "{", "}");
+        result = sub.replace(message);
+        return result;
+    }
+    public static String getSaturationModeDisabledOthersMessage(String playerName){
+        String message;
+        String result;
+        message = saturationModeDisabledOthersMessage;
+        Map<String, String> replacementStrings = Map.of(
+                "PLAYER", playerName
+        );
+        StringSubstitutor sub = new StringSubstitutor(replacementStrings, "{", "}");
+        result = sub.replace(message);
+        return result;
+    }
 
 
 
@@ -296,5 +322,10 @@ public class ChatMessages {
 
         feedMessage = ChatMessages.prefix + config.get("feedmessage");
         feedMessageOthers = ChatMessages.prefix + config.get("feedmessageothers");
+
+        saturationModeEnabledMessage = ChatMessages.prefix + config.get("saturationmodeenabledmessage");
+        saturationModeDisabledMessage = ChatMessages.prefix + config.get("saturationmodedisabledmessage");
+        saturationModeEnabledOthersMessage = ChatMessages.prefix + config.get("saturationmodeenableothersmessage");
+        saturationModeDisabledOthersMessage = ChatMessages.prefix + config.get("saturationmodedisableothersmessage");
     }
 }

@@ -36,3 +36,7 @@ setsaturationtargetmessage: "§eYour saturation level was set to §b{SATURATIONL
 getsaturationmessage: "§b{PLAYER} §ehas a saturation level of §b{SATURATIONLEVEL}"
 feedmessage: "§eYou have been successfully feeded"
 feedmessageothers: "§b{PLAYER} §ewas successfully feeded"
+saturationmodeenabledmessage: "§eYou have §bturned on §esaturation mode"
+saturationmodedisabledmessage: "§eYou have §bturned off §esaturation mode"
+saturationmodeenableothersmessage: "§eYou have §bturned on §esaturation mode for §b{PLAYER}"
+saturationmodedisableothersmessage: "§eYou have §bturned off §esaturation mode for §b{PLAYER}"
