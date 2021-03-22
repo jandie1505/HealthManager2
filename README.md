@@ -1,5 +1,6 @@
 # HealthManager 2
 Health Manager 2 is a Minecraft plugin that lets you view and edit health, hunger, saturation, and maximum lives.
+You can also enable a god and saturation mode.
 ## Commands and Permissions
  
 | Commands | Permissions | Description |
