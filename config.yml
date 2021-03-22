@@ -12,6 +12,13 @@ ignoreop: false
 # If this is disabled, only the executor will see a message.
 sendmessagestotarget: true
 
+# - Enable PlaceholderAPI-Support -
+# If this is enabled, you can use the PlaceholderAPI to display lives, food level, saturation, ...
+# If this is disabled, this won't work.
+placeholderapi: true
+
+
+
 # --- Messages ---
 prefix: "§6HealthManager2 §7| §e"
 nopermission: "§cYou don't have the permission to execute this command"
@@ -44,3 +51,32 @@ godmodeenabledmessage: "§eYou have §bturned on §egod mode"
 godmodedisabledmessage: "§eYou have §bturned off §egod mode"
 godmodeenabledothersmessage: "§eYou have §bturned on §egod mode for §b{PLAYER}"
 godmodedisabledothersmessage: "§eYou have §bturned off §egod mode for §b{PLAYER}"
+
+
+
+# --- Placeholders ---
+# - Health -
+# Placeholder: %healthmanager_health%
+PlaceholderHealth: "{LIVES}"
+
+# - Max Health -
+# Placeholder: %healthmanager_maxhealth%
+PlaceholderMaxhealth: "{MAXHEALTH}"
+
+# - Foodlevel/Hunger -
+# Placeholder: %healthmanager_foodlevel%
+PlaceholderFoodlevel: "{FOODLEVEL}"
+
+# - Saturation -
+# Placeholder: %healthmanager_saturationlevel%
+PlaceholderSaturationlevel: "{SATURATIONLEVEL}"
+
+# - Godmode enabled -
+# Placeholder: %healthmanager_godmode%
+PlaceholderGodmodeEnabled: "On"
+PlaceholderGodmodeDisabled: "Off"
+
+# - Saturation Mode -
+# Placeholder: %healthmanager_saturationmode%
+PlaceholderSaturationmodeEnabled: "On"
+PlaceholderSaturationmodeDisabled: "Off"

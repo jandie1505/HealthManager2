@@ -13,6 +13,8 @@ public class Main extends JavaPlugin {
 
     public static boolean ignoreop;
 
+    public static boolean PAPIenabled;
+
     private int mainTask;
 
     public void onEnable(){
@@ -37,11 +39,20 @@ public class Main extends JavaPlugin {
 
         ConsoleMessages.defaultMessage("HealthManager2 was successfully enabled");
 
+        if(Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null){
+            PAPIenabled = true;
+        } else {
+            PAPIenabled = false;
+        }
+
         mainTask = Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
             @Override
             public void run() {
                 tasks.TaskSaturationmode.run();
                 tasks.TaskGodmode.run();
+                if(Config.placeholderapi && PAPIenabled){
+                    tasks.TaskPlaceholderAPITask.run();
+                }
             }
         }, 0, 1);
     }

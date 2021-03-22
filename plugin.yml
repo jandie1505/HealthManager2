@@ -3,6 +3,7 @@ name: HealthManager2
 version: 2.0
 website: jandie1505.net
 api-version: 1.16
+softdepend: [PlaceholderAPI]
 commands:
   healthmanager:
     description: Shows informations

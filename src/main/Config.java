@@ -7,10 +7,12 @@ public class Config {
 
     public static boolean ignoreOp;
     public static boolean sendMessagesToTarget;
-
+    public static boolean placeholderapi;
 
     public static void load(){
         ignoreOp = config.getBoolean("ignoreop");
         sendMessagesToTarget = config.getBoolean("sendmessagestotarget");
+        //placeholderapi = config.getBoolean("placeholderapi");
+        placeholderapi = false;
     }
 }
