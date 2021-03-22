@@ -25,6 +25,9 @@ You can also enable a god and saturation mode.
 | /saturation [Player] | healthmanager.saturation.others | Turn on/off the saturation mode for a specific player |
 | /god | healthmanager.god | Turn on/off the god mode for yourself |
 | /god [Player] |healthmanager.god.others  | Turn on/off the god mode for a specific player |
+## God mode and saturation mode
+The Godmode makes you invulnerable.
+Saturation mode makes sure you don't lose hunger.
 ## Config
 The Config.yml is located in the Healthmanager2.jar. Open the jarfile with a program like 7-zip and edit the config.yml.
 ## Download
