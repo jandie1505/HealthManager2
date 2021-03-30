@@ -8,6 +8,7 @@
       <element id="extracted-dir" path="$PROJECT_DIR$/dependencies/commons-lang3-3.11.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/dependencies/commons-text-1.9.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/dependencies/spigot-api-1.16.5-R0.1-20210316.210505-33.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/dependencies/placeholderapi-2.10.9.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

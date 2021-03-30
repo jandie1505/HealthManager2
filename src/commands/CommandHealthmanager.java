@@ -1,9 +1,6 @@
 package commands;
 
-import main.ChatMessages;
-import main.Config;
-import main.ConsoleMessages;
-import main.Main;
+import main.*;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -44,6 +41,7 @@ public class CommandHealthmanager implements CommandExecutor {
                         if(p.hasPermission("healthmanager.reload")){
                             Config.load();
                             ChatMessages.load();
+                            PlaceholderMessages.load();
                             p.sendMessage(ChatMessages.prefix + "Reload complete");
                         }
 

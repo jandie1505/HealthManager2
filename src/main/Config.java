@@ -12,7 +12,6 @@ public class Config {
     public static void load(){
         ignoreOp = config.getBoolean("ignoreop");
         sendMessagesToTarget = config.getBoolean("sendmessagestotarget");
-        //placeholderapi = config.getBoolean("placeholderapi");
-        placeholderapi = false;
+        placeholderapi = config.getBoolean("placeholderapi");
     }
 }

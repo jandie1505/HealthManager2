@@ -1,6 +1,7 @@
 package main;
 
 import commands.*;
+import expansions.ExpansionPlaceholderAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -21,6 +22,7 @@ public class Main extends JavaPlugin {
         plugin = this;
         Config.load();
         ChatMessages.load();
+        PlaceholderMessages.load();
         ignoreop = Config.ignoreOp;
 
         Objects.requireNonNull(getCommand("healthmanager")).setExecutor(new CommandHealthmanager());
@@ -45,14 +47,20 @@ public class Main extends JavaPlugin {
             PAPIenabled = false;
         }
 
+        if(Config.placeholderapi && PAPIenabled){
+            new ExpansionPlaceholderAPI().register();
+            ConsoleMessages.defaultMessage("PlaceholderAPI Support enabled");
+        } else if(Config.placeholderapi && !PAPIenabled) {
+            ConsoleMessages.defaultMessage("PlaceholderAPI Support enabled but it was not found");
+        } else {
+            ConsoleMessages.defaultMessage("PlaceholderAPI Support disabled");
+        }
+
         mainTask = Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
             @Override
             public void run() {
                 tasks.TaskSaturationmode.run();
                 tasks.TaskGodmode.run();
-                if(Config.placeholderapi && PAPIenabled){
-                    tasks.TaskPlaceholderAPITask.run();
-                }
             }
         }, 0, 1);
     }
