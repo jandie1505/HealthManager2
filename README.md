@@ -38,6 +38,7 @@ You can use the following placeholders:
 | %healthmanager_saturationlevel% | Player Saturation Level  |
 | %healthmanager_godmode% | Player Godmode State (On/Off)  |
 | %healthmanager_saturationmode% | Player Saturationmode State (On/Off)  |
+
 The content of the placeholder can be changed in the config.
 ## Config
 The Config.yml is located in the Healthmanager2.jar. Open the jarfile with a program like 7-zip and edit the config.yml.
