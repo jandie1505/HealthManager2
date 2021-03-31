@@ -41,6 +41,7 @@ You can use the following placeholders:
 
 The content of the placeholder can be changed in the config.
 ## Config
-The Config.yml is located in the Healthmanager2.jar. Open the jarfile with a program like 7-zip and edit the config.yml.
+The config.yml is located in the Folder <Plugins Folder>/HealthManager2/config.yml.
+The config is explained in the config.yml file.
 ## Download
 The Download will be available at the releases page and on spigotmc.org when the plugin is finished.
