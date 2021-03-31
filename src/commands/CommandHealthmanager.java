@@ -1,6 +1,9 @@
 package commands;
 
 import main.*;
+import messages.ChatMessages;
+import messages.ConsoleMessages;
+import messages.PlaceholderMessages;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

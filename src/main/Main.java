@@ -2,9 +2,17 @@ package main;
 
 import commands.*;
 import expansions.ExpansionPlaceholderAPI;
+import messages.ChatMessages;
+import messages.ConsoleMessages;
+import messages.PlaceholderMessages;
 import org.bukkit.Bukkit;
+import org.bukkit.configuration.InvalidConfigurationException;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Objects;
 
 public class Main extends JavaPlugin {
@@ -18,8 +26,15 @@ public class Main extends JavaPlugin {
 
     private int mainTask;
 
+    private static File configFile;
+    private static FileConfiguration config;
+
     public void onEnable(){
         plugin = this;
+        //Config.load();
+        //ChatMessages.load();
+        //PlaceholderMessages.load();
+        createCustomConfig();
         Config.load();
         ChatMessages.load();
         PlaceholderMessages.load();
@@ -56,6 +71,11 @@ public class Main extends JavaPlugin {
             ConsoleMessages.defaultMessage("PlaceholderAPI Support disabled");
         }
 
+        /*
+        Create Schedulers
+
+
+         */
         mainTask = Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
             @Override
             public void run() {
@@ -63,6 +83,29 @@ public class Main extends JavaPlugin {
                 tasks.TaskGodmode.run();
             }
         }, 0, 1);
+    }
+
+    public FileConfiguration getCustomConfig() {
+        return config;
+    }
+
+    private void createCustomConfig() {
+        configFile = new File(getDataFolder(), "config.yml");
+        if (!configFile.exists()) {
+            configFile.getParentFile().mkdirs();
+            //saveDefaultConfig();
+            saveResource("config.yml", false);
+        }
+
+        config = new YamlConfiguration();
+        try {
+            config.load(configFile);
+        } catch (IOException | InvalidConfigurationException e) {
+            e.printStackTrace();
+            ConsoleMessages.defaultMessage("Configuration Error");
+            ConsoleMessages.defaultMessage("The plugin is now deactivating because there was an error with the config.");
+            Bukkit.getPluginManager().disablePlugin(this);
+        }
     }
 
     public static Main getPlugin(){

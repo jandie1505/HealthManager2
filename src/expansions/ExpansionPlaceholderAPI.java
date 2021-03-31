@@ -1,6 +1,6 @@
 package expansions;
 
-import main.PlaceholderMessages;
+import messages.PlaceholderMessages;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.entity.Player;
 

@@ -1,4 +1,4 @@
-package main;
+package messages;
 
 public class ConsoleMessages {
     public static String[] helpMessage = new String[13];

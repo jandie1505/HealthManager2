@@ -1,6 +1,6 @@
 package commands;
 
-import main.ChatMessages;
+import messages.ChatMessages;
 import main.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;

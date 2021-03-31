@@ -1,5 +1,6 @@
-package main;
+package messages;
 
+import main.Main;
 import org.apache.commons.text.StringSubstitutor;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -10,7 +11,7 @@ import tasks.TaskSaturationmode;
 import java.util.Map;
 
 public class PlaceholderMessages {
-    private static FileConfiguration config = Main.getPlugin().getConfig();
+    private static FileConfiguration config = Main.getPlugin().getCustomConfig();
 
     private static String health;
     private static String maxHealth;

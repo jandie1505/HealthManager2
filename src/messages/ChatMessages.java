@@ -1,12 +1,13 @@
-package main;
+package messages;
 
+import main.Main;
 import org.apache.commons.text.StringSubstitutor;
 import org.bukkit.configuration.file.FileConfiguration;
 
 import java.util.Map;
 
 public class ChatMessages {
-    static FileConfiguration config = Main.getPlugin().getConfig();
+    static FileConfiguration config = Main.getPlugin().getCustomConfig();
 
     public static String prefix;
     public static String nopermission;
