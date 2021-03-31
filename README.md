@@ -28,7 +28,20 @@ You can also enable a god and saturation mode.
 ## God mode and saturation mode
 The Godmode makes you invulnerable.
 Saturation mode makes sure you don't lose hunger.
+## PlaceholderAPI-Support
+You can use the following placeholders:
+| Placeholder  | Value  |
+|--|--|
+| %healthmanager_health% | Player Health  |
+| %healthmanager_maxhealth% | Max Player Health  |
+| %healthmanager_foodlevel% | Player Food Level  |
+| %healthmanager_saturationlevel% | Player Saturation Level  |
+| %healthmanager_godmode% | Player Godmode State (On/Off)  |
+| %healthmanager_saturationmode% | Player Saturationmode State (On/Off)  |
+
+The content of the placeholder can be changed in the config.
 ## Config
-The Config.yml is located in the Healthmanager2.jar. Open the jarfile with a program like 7-zip and edit the config.yml.
+The config.yml is located in the Folder <Plugins Folder>/HealthManager2/config.yml.
+The config is explained in the config.yml file.
 ## Download
 The Download will be available at the releases page and on spigotmc.org when the plugin is finished.
