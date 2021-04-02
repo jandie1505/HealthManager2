@@ -39,9 +39,9 @@ You can use the following placeholders:
 | %healthmanager_godmode% | Player Godmode State (On/Off)  |
 | %healthmanager_saturationmode% | Player Saturationmode State (On/Off)  |
 
+PlaceholderAPI must be installed to use these feature.
+
 The content of the placeholder can be changed in the config.
 ## Config
 The config.yml is located in the Folder <Plugins Folder>/HealthManager2/config.yml.
 The config is explained in the config.yml file.
-## Download
-The Download will be available at the releases page and on spigotmc.org when the plugin is finished.
