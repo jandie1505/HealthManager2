@@ -11,6 +11,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.function.Function;
+
 public class CommandHeal implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
         if(sender instanceof Player){
@@ -36,7 +38,7 @@ public class CommandHeal implements CommandExecutor {
                         if(Config.sendMessagesToTarget){
                             target.sendMessage(ChatMessages.healmessage);
                         }
-                        p.sendMessage(ChatMessages.getHealMessageOthers(p.getName()));
+                        p.sendMessage(ChatMessages.getHealMessageOthers(target.getName()));
                     } else {
                         p.sendMessage(ChatMessages.playernotfound);
                     }
@@ -47,7 +49,23 @@ public class CommandHeal implements CommandExecutor {
 
 
         } else if(sender instanceof ConsoleCommandSender){
-            ConsoleMessages.defaultMessage("This command must be executed by a player");
+            if(args.length == 1){
+                Player target = Bukkit.getPlayer(args[0]);
+                if (target != null) {
+                    int maxhealth = (int) target.getMaxHealth();
+                    target.setHealth(maxhealth);
+                    target.setFoodLevel(20);
+                    target.setSaturation(20);
+                    if(Config.sendMessagesToTarget){
+                        target.sendMessage(ChatMessages.healmessage);
+                    }
+                    ConsoleMessages.noPrefixMessage(ChatMessages.getHealMessageOthers(target.getName()));
+                    } else {
+                        ConsoleMessages.noPrefixMessage(ChatMessages.playernotfound);
+                    }
+            } else {
+                ConsoleMessages.defaultMessage(ChatMessages.wrongSyntax);
+            }
         }
         return true;
     }

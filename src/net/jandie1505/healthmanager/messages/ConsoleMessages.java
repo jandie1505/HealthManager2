@@ -8,6 +8,10 @@ public class ConsoleMessages {
         System.out.println("[HealthManager2] " + message);
     }
 
+    public static  void noPrefixMessage(String message){
+        System.out.println(message);
+    }
+
     public static void helpMessage(){
         helpMessage[0] = "HealthManager2 Help:";
         helpMessage[1] = "/healthmanager - Status command";

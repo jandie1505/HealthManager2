@@ -11,6 +11,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
+import java.io.Console;
+
 public class CommandSethealth implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
         if(sender instanceof Player){
@@ -39,7 +41,25 @@ public class CommandSethealth implements CommandExecutor {
                 p.sendMessage(ChatMessages.nopermission);
             }
         } else if(sender instanceof ConsoleCommandSender){
-            ConsoleMessages.defaultMessage("This command must be executed by a player");
+            if(args.length == 2){
+                Player target = Bukkit.getPlayer(args[0]);
+                try {
+                    int setHealth = Integer.parseInt(args[1]);
+                    if(target != null){
+                        target.setHealth(setHealth);
+                        ConsoleMessages.noPrefixMessage(ChatMessages.getSethealthMessage(target.getName(), setHealth));
+                        if(Config.sendMessagesToTarget){
+                            target.sendMessage(ChatMessages.getSethealthTargetMessage(setHealth));
+                        }
+                    } else {
+                        ConsoleMessages.noPrefixMessage(ChatMessages.playernotfound);
+                    }
+                } catch(Exception e){
+                    ConsoleMessages.noPrefixMessage(ChatMessages.wrongSyntax);
+                }
+            } else {
+                ConsoleMessages.noPrefixMessage(ChatMessages.wrongSyntax);
+            }
         }
         return true;
     }
