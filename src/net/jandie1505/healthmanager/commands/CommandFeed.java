@@ -43,7 +43,21 @@ public class CommandFeed implements CommandExecutor {
 
 
         } else if (sender instanceof ConsoleCommandSender) {
-            ConsoleMessages.defaultMessage("This command must be executed by a player");
+            if(args.length == 1){
+                Player target = Bukkit.getPlayer(args[0]);
+                if (target != null) {
+                    target.setFoodLevel(20);
+                    target.setSaturation(20);
+                    if (Config.sendMessagesToTarget) {
+                        target.sendMessage(ChatMessages.feedMessage);
+                    }
+                    ConsoleMessages.noPrefixMessage(ChatMessages.getFeedMessageOthers(target.getName()));
+                } else {
+                    ConsoleMessages.noPrefixMessage(ChatMessages.playernotfound);
+                }
+            } else {
+                ConsoleMessages.noPrefixMessage(ChatMessages.wrongSyntax);
+            }
         }
         return true;
     }

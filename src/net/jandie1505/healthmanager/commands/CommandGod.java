@@ -2,11 +2,13 @@ package net.jandie1505.healthmanager.commands;
 
 import net.jandie1505.healthmanager.messages.ChatMessages;
 import net.jandie1505.healthmanager.main.Main;
+import net.jandie1505.healthmanager.messages.ConsoleMessages;
 import net.jandie1505.healthmanager.tasks.TaskGodmode;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
 public class CommandGod implements CommandExecutor {
@@ -47,6 +49,26 @@ public class CommandGod implements CommandExecutor {
             } else {
                 p.sendMessage(ChatMessages.wrongSyntax);
             }
+        } else if(sender instanceof ConsoleCommandSender){
+            if(args.length == 1) {
+                Player target = Bukkit.getPlayer(args[0]);
+                try {
+                    if(target != null){
+                        if(!TaskGodmode.checkGodmodeIsEnabled(target)){
+                            TaskGodmode.setGodmodeEnabled(target);
+                            ConsoleMessages.noPrefixMessage(ChatMessages.getGodmodeEnabledOthersMessage(target.getName()));
+                        } else {
+                            TaskGodmode.setGodmodeDisabled(target);
+                            ConsoleMessages.noPrefixMessage(ChatMessages.getGodmodeDisabledOthersMessage(target.getName()));
+                        }
+                    } else {
+                        ConsoleMessages.noPrefixMessage(ChatMessages.playernotfound);
+                    }
+                } catch(Exception e){
+                    ConsoleMessages.noPrefixMessage(ChatMessages.wrongSyntax);
+                }
+            }
+
         }
         return true;
     }

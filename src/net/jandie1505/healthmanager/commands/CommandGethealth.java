@@ -33,7 +33,20 @@ public class CommandGethealth implements CommandExecutor {
                 p.sendMessage(ChatMessages.nopermission);
             }
         } else if(sender instanceof ConsoleCommandSender){
-            ConsoleMessages.defaultMessage("This command must be executed by a player");
+            if(args.length == 1){
+                Player target = Bukkit.getPlayer(args[0]);
+                try {
+                    if(target != null){
+                        ConsoleMessages.noPrefixMessage(ChatMessages.getGethealthMessage(target.getName(), (int) target.getHealth()));
+                    } else {
+                        ConsoleMessages.noPrefixMessage(ChatMessages.playernotfound);
+                    }
+                } catch (Exception e) {
+                    ConsoleMessages.noPrefixMessage(ChatMessages.wrongSyntax);
+                }
+            } else {
+                ConsoleMessages.noPrefixMessage(ChatMessages.wrongSyntax);
+            }
         }
         return true;
     }
