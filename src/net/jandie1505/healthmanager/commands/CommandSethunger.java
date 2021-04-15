@@ -39,7 +39,23 @@ public class CommandSethunger implements CommandExecutor {
                 p.sendMessage(ChatMessages.nopermission);
             }
         } else if(sender instanceof ConsoleCommandSender){
-            ConsoleMessages.defaultMessage("This command must be executed by a player");
+            if(args.length == 2){
+                Player target = Bukkit.getPlayer(args[0]);
+                try {
+                    int setHunger = Integer.parseInt(args[1]);
+                    if(target != null){
+                        target.setFoodLevel(setHunger);
+                        ConsoleMessages.noPrefixMessage(ChatMessages.getSethungerMessage(target.getName(), setHunger));
+                        if(Config.sendMessagesToTarget){
+                            target.sendMessage(ChatMessages.getSethungerTargetMessage(setHunger));
+                        }
+                    } else {
+                        ConsoleMessages.noPrefixMessage(ChatMessages.playernotfound);
+                    }
+                } catch(Exception e){
+                    ConsoleMessages.noPrefixMessage(ChatMessages.wrongSyntax);
+                }
+            }
         }
         return true;
     }

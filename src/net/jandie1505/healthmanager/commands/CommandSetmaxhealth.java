@@ -26,6 +26,8 @@ public class CommandSetmaxhealth implements CommandExecutor {
                             if(Config.sendMessagesToTarget){
                                 target.sendMessage(ChatMessages.getSetmaxhealthTargetMessage(newHealth));
                             }
+                        } else {
+                            p.sendMessage(ChatMessages.playernotfound);
                         }
                     } catch(Exception e) {
                         p.sendMessage(ChatMessages.wrongSyntax);
@@ -37,7 +39,25 @@ public class CommandSetmaxhealth implements CommandExecutor {
                 p.sendMessage(ChatMessages.nopermission);
             }
         } else if(sender instanceof ConsoleCommandSender){
-            ConsoleMessages.defaultMessage("This command must be executed by a player");
+            if(args.length == 2){
+                Player target = Bukkit.getPlayer(args[0]);
+                try {
+                    int newHealth = Integer.parseInt(args[1]);
+                    if(target != null){
+                        target.setMaxHealth(newHealth);
+                        ConsoleMessages.noPrefixMessage(ChatMessages.getSetmaxhealthMessage(target.getName(), newHealth));
+                        if(Config.sendMessagesToTarget){
+                            target.sendMessage(ChatMessages.getSetmaxhealthTargetMessage(newHealth));
+                        }
+                    } else {
+                        ConsoleMessages.noPrefixMessage(ChatMessages.playernotfound);
+                    }
+                } catch (Exception e){
+                    ConsoleMessages.noPrefixMessage(ChatMessages.wrongSyntax);
+                }
+            } else {
+                ConsoleMessages.noPrefixMessage(ChatMessages.wrongSyntax);
+            }
         }
         return true;
     }

@@ -39,7 +39,25 @@ public class CommandSetsaturation implements CommandExecutor {
                 p.sendMessage(ChatMessages.nopermission);
             }
         } else if(sender instanceof ConsoleCommandSender){
-            ConsoleMessages.defaultMessage("This command must be executed by a player");
+            if(args.length == 2){
+                Player target = Bukkit.getPlayer(args[0]);
+                try {
+                    int setSaturation = Integer.parseInt(args[1]);
+                    if(target != null) {
+                        target.setSaturation(setSaturation);
+                        ConsoleMessages.noPrefixMessage(ChatMessages.getSetsaturationMessage(target.getName(), setSaturation));
+                        if(Config.sendMessagesToTarget){
+                            target.sendMessage(ChatMessages.getSetsaturationTargetMessage(setSaturation));
+                        }
+                    } else {
+                        ConsoleMessages.noPrefixMessage(ChatMessages.playernotfound);
+                    }
+                } catch(Exception e) {
+                    ConsoleMessages.noPrefixMessage(ChatMessages.wrongSyntax);
+                }
+            } else {
+                ConsoleMessages.noPrefixMessage(ChatMessages.wrongSyntax);
+            }
         }
         return true;
     }
