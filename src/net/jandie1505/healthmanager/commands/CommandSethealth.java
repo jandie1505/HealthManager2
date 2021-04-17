@@ -46,18 +46,18 @@ public class CommandSethealth implements CommandExecutor {
                     int setHealth = Integer.parseInt(args[1]);
                     if(target != null){
                         target.setHealth(setHealth);
-                        ConsoleMessages.noPrefixMessage(Messages.getSethealthMessage(target.getName(), setHealth));
+                        ConsoleMessages.defaultMessage(Messages.getSethealthMessage(target.getName(), setHealth));
                         if(Config.sendMessagesToTarget){
                             SendMessage.defaultMessage(target,Messages.getSethealthTargetMessage(setHealth));
                         }
                     } else {
-                        ConsoleMessages.noPrefixMessage(Messages.playernotfound);
+                        ConsoleMessages.defaultMessage(Messages.playernotfound);
                     }
                 } catch(Exception e){
-                    ConsoleMessages.noPrefixMessage(Messages.wrongSyntax);
+                    ConsoleMessages.defaultMessage(Messages.wrongSyntax);
                 }
             } else {
-                ConsoleMessages.noPrefixMessage(Messages.wrongSyntax);
+                ConsoleMessages.defaultMessage(Messages.wrongSyntax);
             }
         }
         return true;

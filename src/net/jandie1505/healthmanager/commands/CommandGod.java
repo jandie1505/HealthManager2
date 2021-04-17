@@ -57,16 +57,16 @@ public class CommandGod implements CommandExecutor {
                     if(target != null){
                         if(!TaskGodmode.checkGodmodeIsEnabled(target)){
                             TaskGodmode.setGodmodeEnabled(target);
-                            ConsoleMessages.noPrefixMessage(Messages.getGodmodeEnabledOthersMessage(target.getName()));
+                            ConsoleMessages.defaultMessage(Messages.getGodmodeEnabledOthersMessage(target.getName()));
                         } else {
                             TaskGodmode.setGodmodeDisabled(target);
-                            ConsoleMessages.noPrefixMessage(Messages.getGodmodeDisabledOthersMessage(target.getName()));
+                            ConsoleMessages.defaultMessage(Messages.getGodmodeDisabledOthersMessage(target.getName()));
                         }
                     } else {
-                        ConsoleMessages.noPrefixMessage(Messages.playernotfound);
+                        ConsoleMessages.defaultMessage(Messages.playernotfound);
                     }
                 } catch(Exception e){
-                    ConsoleMessages.noPrefixMessage(Messages.wrongSyntax);
+                    ConsoleMessages.defaultMessage(Messages.wrongSyntax);
                 }
             }
 

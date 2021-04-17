@@ -46,18 +46,18 @@ public class CommandSetmaxhealth implements CommandExecutor {
                     int newHealth = Integer.parseInt(args[1]);
                     if(target != null){
                         target.setMaxHealth(newHealth);
-                        ConsoleMessages.noPrefixMessage(Messages.getSetmaxhealthMessage(target.getName(), newHealth));
+                        ConsoleMessages.defaultMessage(Messages.getSetmaxhealthMessage(target.getName(), newHealth));
                         if(Config.sendMessagesToTarget){
                             SendMessage.defaultMessage(target,Messages.getSetmaxhealthTargetMessage(newHealth));
                         }
                     } else {
-                        ConsoleMessages.noPrefixMessage(Messages.playernotfound);
+                        ConsoleMessages.defaultMessage(Messages.playernotfound);
                     }
                 } catch (Exception e){
-                    ConsoleMessages.noPrefixMessage(Messages.wrongSyntax);
+                    ConsoleMessages.defaultMessage(Messages.wrongSyntax);
                 }
             } else {
-                ConsoleMessages.noPrefixMessage(Messages.wrongSyntax);
+                ConsoleMessages.defaultMessage(Messages.wrongSyntax);
             }
         }
         return true;

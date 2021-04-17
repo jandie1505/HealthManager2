@@ -35,7 +35,7 @@ public class CommandHealthmanager implements CommandExecutor {
                         Player p = (Player) sender;
                         if(p.hasPermission("healthmanager.help")){
                             for(int i = 0; i< Messages.helpMessage.length; i++){
-                                SendMessage.defaultMessage(p,Messages.helpMessage[i]);
+                                SendMessage.MessageWithoutPrefix(p,Messages.helpMessage[i]);
                             }
                         }
                     } else if(sender instanceof ConsoleCommandSender) {
@@ -49,7 +49,7 @@ public class CommandHealthmanager implements CommandExecutor {
                             Config.load();
                             Messages.load();
                             PlaceholderMessages.load();
-                            SendMessage.defaultMessage(p,Messages.prefix + "Reload complete");
+                            SendMessage.defaultMessage(p,"Reload complete");
                         }
 
                     } else if(sender instanceof ConsoleCommandSender) {

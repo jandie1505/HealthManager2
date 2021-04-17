@@ -38,15 +38,15 @@ public class CommandGetsaturation implements CommandExecutor {
                 Player target = Bukkit.getPlayer(args[0]);
                 try {
                     if(target != null){
-                        ConsoleMessages.noPrefixMessage(Messages.getGetsaturationMessage(target.getName(), (int) target.getSaturation()));
+                        ConsoleMessages.defaultMessage(Messages.getGetsaturationMessage(target.getName(), (int) target.getSaturation()));
                     } else {
-                        ConsoleMessages.noPrefixMessage(Messages.playernotfound);
+                        ConsoleMessages.defaultMessage(Messages.playernotfound);
                     }
                 } catch (Exception e) {
-                    ConsoleMessages.noPrefixMessage(Messages.wrongSyntax);
+                    ConsoleMessages.defaultMessage(Messages.wrongSyntax);
                 }
             } else {
-                ConsoleMessages.noPrefixMessage(Messages.wrongSyntax);
+                ConsoleMessages.defaultMessage(Messages.wrongSyntax);
             }
         }
         return true;

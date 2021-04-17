@@ -46,15 +46,15 @@ public class CommandSethunger implements CommandExecutor {
                     int setHunger = Integer.parseInt(args[1]);
                     if(target != null){
                         target.setFoodLevel(setHunger);
-                        ConsoleMessages.noPrefixMessage(Messages.getSethungerMessage(target.getName(), setHunger));
+                        ConsoleMessages.defaultMessage(Messages.getSethungerMessage(target.getName(), setHunger));
                         if(Config.sendMessagesToTarget){
                             SendMessage.defaultMessage(target,Messages.getSethungerTargetMessage(setHunger));
                         }
                     } else {
-                        ConsoleMessages.noPrefixMessage(Messages.playernotfound);
+                        ConsoleMessages.defaultMessage(Messages.playernotfound);
                     }
                 } catch(Exception e){
-                    ConsoleMessages.noPrefixMessage(Messages.wrongSyntax);
+                    ConsoleMessages.defaultMessage(Messages.wrongSyntax);
                 }
             }
         }

@@ -52,12 +52,12 @@ public class CommandFeed implements CommandExecutor {
                     if (Config.sendMessagesToTarget) {
                         SendMessage.defaultMessage(target,Messages.feedMessage);
                     }
-                    ConsoleMessages.noPrefixMessage(Messages.getFeedMessageOthers(target.getName()));
+                    ConsoleMessages.defaultMessage(Messages.getFeedMessageOthers(target.getName()));
                 } else {
-                    ConsoleMessages.noPrefixMessage(Messages.playernotfound);
+                    ConsoleMessages.defaultMessage(Messages.playernotfound);
                 }
             } else {
-                ConsoleMessages.noPrefixMessage(Messages.wrongSyntax);
+                ConsoleMessages.defaultMessage(Messages.wrongSyntax);
             }
         }
         return true;

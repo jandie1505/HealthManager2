@@ -46,18 +46,18 @@ public class CommandSetsaturation implements CommandExecutor {
                     int setSaturation = Integer.parseInt(args[1]);
                     if(target != null) {
                         target.setSaturation(setSaturation);
-                        ConsoleMessages.noPrefixMessage(Messages.getSetsaturationMessage(target.getName(), setSaturation));
+                        ConsoleMessages.defaultMessage(Messages.getSetsaturationMessage(target.getName(), setSaturation));
                         if(Config.sendMessagesToTarget){
                             SendMessage.defaultMessage(target,Messages.getSetsaturationTargetMessage(setSaturation));
                         }
                     } else {
-                        ConsoleMessages.noPrefixMessage(Messages.playernotfound);
+                        ConsoleMessages.defaultMessage(Messages.playernotfound);
                     }
                 } catch(Exception e) {
-                    ConsoleMessages.noPrefixMessage(Messages.wrongSyntax);
+                    ConsoleMessages.defaultMessage(Messages.wrongSyntax);
                 }
             } else {
-                ConsoleMessages.noPrefixMessage(Messages.wrongSyntax);
+                ConsoleMessages.defaultMessage(Messages.wrongSyntax);
             }
         }
         return true;

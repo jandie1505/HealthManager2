@@ -38,15 +38,15 @@ public class CommandGethealth implements CommandExecutor {
                 Player target = Bukkit.getPlayer(args[0]);
                 try {
                     if(target != null){
-                        ConsoleMessages.noPrefixMessage(Messages.getGethealthMessage(target.getName(), (int) target.getHealth()));
+                        ConsoleMessages.defaultMessage(Messages.getGethealthMessage(target.getName(), (int) target.getHealth()));
                     } else {
-                        ConsoleMessages.noPrefixMessage(Messages.playernotfound);
+                        ConsoleMessages.defaultMessage(Messages.playernotfound);
                     }
                 } catch (Exception e) {
-                    ConsoleMessages.noPrefixMessage(Messages.wrongSyntax);
+                    ConsoleMessages.defaultMessage(Messages.wrongSyntax);
                 }
             } else {
-                ConsoleMessages.noPrefixMessage(Messages.wrongSyntax);
+                ConsoleMessages.defaultMessage(Messages.wrongSyntax);
             }
         }
         return true;
