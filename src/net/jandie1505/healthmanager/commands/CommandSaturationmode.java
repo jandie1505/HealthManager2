@@ -1,7 +1,8 @@
 package net.jandie1505.healthmanager.commands;
 
-import net.jandie1505.healthmanager.messages.ChatMessages;
+import net.jandie1505.healthmanager.messages.Messages;
 import net.jandie1505.healthmanager.main.Main;
+import net.jandie1505.healthmanager.messages.SendMessage;
 import net.jandie1505.healthmanager.tasks.TaskSaturationmode;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -17,13 +18,13 @@ public class CommandSaturationmode implements CommandExecutor {
                 if(!Main.ignoreop && p.isOp() || p.hasPermission("healthmanager.saturationmode") || p.hasPermission("healthmanager.saturationmode.others")){
                     if(!TaskSaturationmode.checkSaturationIsEnabled(p)){
                         TaskSaturationmode.setSaturationEnabled(p);
-                        p.sendMessage(ChatMessages.saturationModeEnabledMessage);
+                        SendMessage.defaultMessage(p,Messages.saturationModeEnabledMessage);
                     } else {
                         TaskSaturationmode.setSaturationDisabled(p);
-                        p.sendMessage(ChatMessages.saturationModeDisabledMessage);
+                        SendMessage.defaultMessage(p,Messages.saturationModeDisabledMessage);
                     }
                 } else {
-                    p.sendMessage(ChatMessages.nopermission);
+                    SendMessage.defaultMessage(p,Messages.nopermission);
                 }
             } else if(args.length == 1){
                 if(!Main.ignoreop && p.isOp() || p.hasPermission("healthmanager.saturationmode.others")){
@@ -32,20 +33,20 @@ public class CommandSaturationmode implements CommandExecutor {
                         if(target != null){
                             if(!TaskSaturationmode.checkSaturationIsEnabled(target)){
                                 TaskSaturationmode.setSaturationEnabled(target);
-                                p.sendMessage(ChatMessages.getSaturationModeEnabledOthersMessage(target.getName()));
+                                SendMessage.defaultMessage(p,Messages.getSaturationModeEnabledOthersMessage(target.getName()));
                             } else {
                                 TaskSaturationmode.setSaturationDisabled(target);
-                                p.sendMessage(ChatMessages.getSaturationModeDisabledOthersMessage(target.getName()));
+                                SendMessage.defaultMessage(p,Messages.getSaturationModeDisabledOthersMessage(target.getName()));
                             }
                         }
                     } catch(Exception e){
-                        p.sendMessage(ChatMessages.wrongSyntax);
+                        SendMessage.defaultMessage(p,Messages.wrongSyntax);
                     }
                 } else {
-                    p.sendMessage(ChatMessages.nopermission);
+                    SendMessage.defaultMessage(p,Messages.nopermission);
                 }
             } else {
-                p.sendMessage(ChatMessages.wrongSyntax);
+                SendMessage.defaultMessage(p,Messages.wrongSyntax);
             }
         }
         return true;

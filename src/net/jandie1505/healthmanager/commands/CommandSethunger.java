@@ -1,9 +1,10 @@
 package net.jandie1505.healthmanager.commands;
 
-import net.jandie1505.healthmanager.messages.ChatMessages;
+import net.jandie1505.healthmanager.messages.Messages;
 import net.jandie1505.healthmanager.main.Config;
 import net.jandie1505.healthmanager.messages.ConsoleMessages;
 import net.jandie1505.healthmanager.main.Main;
+import net.jandie1505.healthmanager.messages.SendMessage;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -22,21 +23,21 @@ public class CommandSethunger implements CommandExecutor {
                         int setHunger = Integer.parseInt(args[1]);
                         if(target != null){
                             target.setFoodLevel(setHunger);
-                            p.sendMessage(ChatMessages.getSethungerMessage(target.getName(), setHunger));
+                            SendMessage.defaultMessage(p,Messages.getSethungerMessage(target.getName(), setHunger));
                             if(Config.sendMessagesToTarget){
-                                target.sendMessage(ChatMessages.getSethungerTargetMessage(setHunger));
+                                SendMessage.defaultMessage(target,Messages.getSethungerTargetMessage(setHunger));
                             }
                         } else {
-                            p.sendMessage(ChatMessages.playernotfound);
+                            SendMessage.defaultMessage(p,Messages.playernotfound);
                         }
                     } catch (Exception e){
-                        p.sendMessage(ChatMessages.wrongSyntax);
+                        SendMessage.defaultMessage(p,Messages.wrongSyntax);
                     }
                 } else {
-                    p.sendMessage(ChatMessages.wrongSyntax);
+                    SendMessage.defaultMessage(p,Messages.wrongSyntax);
                 }
             } else {
-                p.sendMessage(ChatMessages.nopermission);
+                SendMessage.defaultMessage(p,Messages.nopermission);
             }
         } else if(sender instanceof ConsoleCommandSender){
             if(args.length == 2){
@@ -45,15 +46,15 @@ public class CommandSethunger implements CommandExecutor {
                     int setHunger = Integer.parseInt(args[1]);
                     if(target != null){
                         target.setFoodLevel(setHunger);
-                        ConsoleMessages.noPrefixMessage(ChatMessages.getSethungerMessage(target.getName(), setHunger));
+                        ConsoleMessages.noPrefixMessage(Messages.getSethungerMessage(target.getName(), setHunger));
                         if(Config.sendMessagesToTarget){
-                            target.sendMessage(ChatMessages.getSethungerTargetMessage(setHunger));
+                            SendMessage.defaultMessage(target,Messages.getSethungerTargetMessage(setHunger));
                         }
                     } else {
-                        ConsoleMessages.noPrefixMessage(ChatMessages.playernotfound);
+                        ConsoleMessages.noPrefixMessage(Messages.playernotfound);
                     }
                 } catch(Exception e){
-                    ConsoleMessages.noPrefixMessage(ChatMessages.wrongSyntax);
+                    ConsoleMessages.noPrefixMessage(Messages.wrongSyntax);
                 }
             }
         }

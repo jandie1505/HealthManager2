@@ -6,7 +6,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 
 import java.util.Map;
 
-public class ChatMessages {
+public class Messages {
     static FileConfiguration config = Main.getPlugin().getCustomConfig();
 
     public static String prefix;
@@ -296,68 +296,68 @@ public class ChatMessages {
 
     public static void load(){
         prefix = config.getString("prefix");
-        nopermission = ChatMessages.prefix + config.getString("nopermission");
-        commandNotFound = ChatMessages.prefix + config.getString("commandnotfound");
-        wrongSyntax = ChatMessages.prefix + config.getString("wrongsyntax");
-        playernotfound = ChatMessages.prefix + config.getString("playernotfound");
+        nopermission = config.getString("nopermission");
+        commandNotFound = config.getString("commandnotfound");
+        wrongSyntax = config.getString("wrongsyntax");
+        playernotfound = config.getString("playernotfound");
 
-        playerreset = ChatMessages.prefix + config.getString("playerreset");
-        playerresettarget = ChatMessages.prefix + config.getString("playerresettarget");
+        playerreset = config.getString("playerreset");
+        playerresettarget = config.getString("playerresettarget");
 
-        stateMessage1 = ChatMessages.prefix + "§6HealthManager2 (" + Main.version + ") by jandie1505";
-        stateMessage2 = ChatMessages.prefix + "§eUse /healthmanager help for more information";
+        stateMessage1 = "§6HealthManager2 (" + Main.version + ") by jandie1505";
+        stateMessage2 = "§eUse /healthmanager help for more information";
 
-        helpMessage[0] = ChatMessages.prefix + "§eHealthManager2 Help:";
-        helpMessage[1] = ChatMessages.prefix + "§7/healthmanager - Status command";
-        helpMessage[2] = ChatMessages.prefix + "§7/healthmanager help - Help command";
-        helpMessage[3] = ChatMessages.prefix + "§7/healthmanager reload - Reload config";
-        helpMessage[4] = ChatMessages.prefix + "§7/healthmanager reset <Player> - Reset all modifiers of healthmanager for a specific player";
-        helpMessage[5] = ChatMessages.prefix + "§7/heal ([Player]) - Heal yourself (or a specific player)";
-        helpMessage[6] = ChatMessages.prefix + "§7/sethealth [Player] [Amount] - Set the health level of a specific player";
-        helpMessage[7] = ChatMessages.prefix + "§7/setmaxhealth [Player] [Amount] - Set the max health level of a specific player";
-        helpMessage[8] = ChatMessages.prefix + "§7/gethealth [Player] - See the health level of a specific player";
-        helpMessage[9] = ChatMessages.prefix + "§7/feed ([Player]) - Feed yourself (or a specific player)";
-        helpMessage[10] = ChatMessages.prefix + "§7/sethunger [Player] - Set the food level of a specific player";
-        helpMessage[11] = ChatMessages.prefix + "§7/gethunger [Player] - Get the food level of a specific player";
-        helpMessage[12] = ChatMessages.prefix + "§7/setsaturation [Player] - Set the saturation level of a specific player";
-        helpMessage[13] = ChatMessages.prefix + "§7/getsaturation [Player] - Get the saturation level of a specific player";
-        helpMessage[14] = ChatMessages.prefix + "§7/saturation ([Player]) - Turn on/off saturation mode for yourself (or a specific player)";
-        helpMessage[15] = ChatMessages.prefix + "§7/god ([Player]) - Turn on/off god mode for yourself (or a specific player)";
+        helpMessage[0] = Messages.prefix + "§eHealthManager2 Help:";
+        helpMessage[1] = Messages.prefix + "§7/healthmanager - Status command";
+        helpMessage[2] = Messages.prefix + "§7/healthmanager help - Help command";
+        helpMessage[3] = Messages.prefix + "§7/healthmanager reload - Reload config";
+        helpMessage[4] = Messages.prefix + "§7/healthmanager reset <Player> - Reset all modifiers of healthmanager for a specific player";
+        helpMessage[5] = Messages.prefix + "§7/heal ([Player]) - Heal yourself (or a specific player)";
+        helpMessage[6] = Messages.prefix + "§7/sethealth [Player] [Amount] - Set the health level of a specific player";
+        helpMessage[7] = Messages.prefix + "§7/setmaxhealth [Player] [Amount] - Set the max health level of a specific player";
+        helpMessage[8] = Messages.prefix + "§7/gethealth [Player] - See the health level of a specific player";
+        helpMessage[9] = Messages.prefix + "§7/feed ([Player]) - Feed yourself (or a specific player)";
+        helpMessage[10] = Messages.prefix + "§7/sethunger [Player] - Set the food level of a specific player";
+        helpMessage[11] = Messages.prefix + "§7/gethunger [Player] - Get the food level of a specific player";
+        helpMessage[12] = Messages.prefix + "§7/setsaturation [Player] - Set the saturation level of a specific player";
+        helpMessage[13] = Messages.prefix + "§7/getsaturation [Player] - Get the saturation level of a specific player";
+        helpMessage[14] = Messages.prefix + "§7/saturation ([Player]) - Turn on/off saturation mode for yourself (or a specific player)";
+        helpMessage[15] = Messages.prefix + "§7/god ([Player]) - Turn on/off god mode for yourself (or a specific player)";
 
-        healmessage = ChatMessages.prefix + config.getString("healmessage");
-        healmessageothers = ChatMessages.prefix + config.getString("healmessageothers");
+        healmessage = config.getString("healmessage");
+        healmessageothers = config.getString("healmessageothers");
 
-        sethealthMessage = ChatMessages.prefix + config.getString("sethealthmessage");
-        sethealthTargetMessage = ChatMessages.prefix + config.getString("sethealthtargetmessage");
+        sethealthMessage = config.getString("sethealthmessage");
+        sethealthTargetMessage = config.getString("sethealthtargetmessage");
 
-        sethungerMessage = ChatMessages.prefix + config.getString("sethungermessage");
-        sethungerTargetMessage = ChatMessages.prefix + config.getString("sethungertargetmessage");
+        sethungerMessage = config.getString("sethungermessage");
+        sethungerTargetMessage = config.getString("sethungertargetmessage");
 
-        gethealthMessage = ChatMessages.prefix + config.getString("gethealthmessage");
+        gethealthMessage = config.getString("gethealthmessage");
 
-        gethungerMessage = ChatMessages.prefix + config.getString("gethungermessage");
+        gethungerMessage = config.getString("gethungermessage");
 
-        setmaxhealthMessage = ChatMessages.prefix + config.getString("setmaxhealthmessage");
-        setmaxhealthTargetMessage = ChatMessages.prefix + config.getString("setmaxhealthtargetmessage");
+        setmaxhealthMessage = config.getString("setmaxhealthmessage");
+        setmaxhealthTargetMessage = config.getString("setmaxhealthtargetmessage");
 
-        getmaxhealthMessage = ChatMessages.prefix + config.getString("getmaxhealthmessage");
+        getmaxhealthMessage = config.getString("getmaxhealthmessage");
 
-        setsaturationMessage = ChatMessages.prefix + config.getString("setsaturationmessage");
-        setsaturationTargetMessage = ChatMessages.prefix + config.getString("setsaturationtargetmessage");
+        setsaturationMessage = config.getString("setsaturationmessage");
+        setsaturationTargetMessage = config.getString("setsaturationtargetmessage");
 
-        getsaturationMessage = ChatMessages.prefix + config.getString("getsaturationmessage");
+        getsaturationMessage = config.getString("getsaturationmessage");
 
-        feedMessage = ChatMessages.prefix + config.get("feedmessage");
-        feedMessageOthers = ChatMessages.prefix + config.get("feedmessageothers");
+        feedMessage = config.getString("feedmessage");
+        feedMessageOthers = config.getString("feedmessageothers");
 
-        saturationModeEnabledMessage = ChatMessages.prefix + config.get("saturationmodeenabledmessage");
-        saturationModeDisabledMessage = ChatMessages.prefix + config.get("saturationmodedisabledmessage");
-        saturationModeEnabledOthersMessage = ChatMessages.prefix + config.get("saturationmodeenableothersmessage");
-        saturationModeDisabledOthersMessage = ChatMessages.prefix + config.get("saturationmodedisableothersmessage");
+        saturationModeEnabledMessage = config.getString("saturationmodeenabledmessage");
+        saturationModeDisabledMessage = config.getString("saturationmodedisabledmessage");
+        saturationModeEnabledOthersMessage = config.getString("saturationmodeenableothersmessage");
+        saturationModeDisabledOthersMessage = config.getString("saturationmodedisableothersmessage");
 
-        godmodeEnabledMessage = ChatMessages.prefix + config.get("godmodeenabledmessage");
-        godmodeDisabledMessage = ChatMessages.prefix + config.get("godmodedisabledmessage");
-        godmodeEnabledOthersMessage = ChatMessages.prefix + config.get("godmodeenabledothersmessage");
-        godmodeDisabledOthersMessage = ChatMessages.prefix + config.get("godmodedisabledothersmessage");
+        godmodeEnabledMessage = config.getString("godmodeenabledmessage");
+        godmodeDisabledMessage = config.getString("godmodedisabledmessage");
+        godmodeEnabledOthersMessage = config.getString("godmodeenabledothersmessage");
+        godmodeDisabledOthersMessage = config.getString("godmodedisabledothersmessage");
     }
 }

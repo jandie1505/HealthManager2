@@ -1,9 +1,10 @@
 package net.jandie1505.healthmanager.commands;
 
-import net.jandie1505.healthmanager.messages.ChatMessages;
+import net.jandie1505.healthmanager.messages.Messages;
 import net.jandie1505.healthmanager.main.Config;
 import net.jandie1505.healthmanager.messages.ConsoleMessages;
 import net.jandie1505.healthmanager.main.Main;
+import net.jandie1505.healthmanager.messages.SendMessage;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -19,9 +20,9 @@ public class CommandFeed implements CommandExecutor {
                 if (!Main.ignoreop && p.isOp() || p.hasPermission("healthmanager.feed") || p.hasPermission("healthmanager.feed.others")) {
                     p.setFoodLevel(20);
                     p.setSaturation(20);
-                    p.sendMessage(ChatMessages.feedMessage);
+                    SendMessage.defaultMessage(p,Messages.feedMessage);
                 } else {
-                    p.sendMessage(ChatMessages.nopermission);
+                    SendMessage.defaultMessage(p,Messages.nopermission);
                 }
             } else if (args.length == 1) {
                 if (!Main.ignoreop && p.isOp() || p.hasPermission("healthmanager.feed.others")) {
@@ -30,14 +31,14 @@ public class CommandFeed implements CommandExecutor {
                         target.setFoodLevel(20);
                         target.setSaturation(20);
                         if (Config.sendMessagesToTarget) {
-                            target.sendMessage(ChatMessages.feedMessage);
+                            SendMessage.defaultMessage(target,Messages.feedMessage);
                         }
-                        p.sendMessage(ChatMessages.getFeedMessageOthers(p.getName()));
+                        SendMessage.defaultMessage(p,Messages.getFeedMessageOthers(p.getName()));
                     } else {
-                        p.sendMessage(ChatMessages.playernotfound);
+                        SendMessage.defaultMessage(p,Messages.playernotfound);
                     }
                 } else {
-                    p.sendMessage(ChatMessages.nopermission);
+                    SendMessage.defaultMessage(p,Messages.nopermission);
                 }
             }
 
@@ -49,14 +50,14 @@ public class CommandFeed implements CommandExecutor {
                     target.setFoodLevel(20);
                     target.setSaturation(20);
                     if (Config.sendMessagesToTarget) {
-                        target.sendMessage(ChatMessages.feedMessage);
+                        SendMessage.defaultMessage(target,Messages.feedMessage);
                     }
-                    ConsoleMessages.noPrefixMessage(ChatMessages.getFeedMessageOthers(target.getName()));
+                    ConsoleMessages.noPrefixMessage(Messages.getFeedMessageOthers(target.getName()));
                 } else {
-                    ConsoleMessages.noPrefixMessage(ChatMessages.playernotfound);
+                    ConsoleMessages.noPrefixMessage(Messages.playernotfound);
                 }
             } else {
-                ConsoleMessages.noPrefixMessage(ChatMessages.wrongSyntax);
+                ConsoleMessages.noPrefixMessage(Messages.wrongSyntax);
             }
         }
         return true;

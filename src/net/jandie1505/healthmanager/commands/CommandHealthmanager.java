@@ -1,11 +1,11 @@
 package net.jandie1505.healthmanager.commands;
 
-import net.jandie1505.healthmanager.main.*;
-import net.jandie1505.healthmanager.messages.ChatMessages;
+import net.jandie1505.healthmanager.messages.Messages;
 import net.jandie1505.healthmanager.messages.ConsoleMessages;
 import net.jandie1505.healthmanager.messages.PlaceholderMessages;
 import net.jandie1505.healthmanager.main.Config;
 import net.jandie1505.healthmanager.main.Main;
+import net.jandie1505.healthmanager.messages.SendMessage;
 import net.jandie1505.healthmanager.tasks.TaskGodmode;
 import net.jandie1505.healthmanager.tasks.TaskSaturationmode;
 import org.bukkit.Bukkit;
@@ -20,8 +20,8 @@ public class CommandHealthmanager implements CommandExecutor {
         if(args.length == 0){
             if(sender instanceof Player){
                 Player p = (Player) sender;
-                p.sendMessage(ChatMessages.stateMessage1);
-                p.sendMessage(ChatMessages.stateMessage2);
+                SendMessage.defaultMessage(p,Messages.stateMessage1);
+                SendMessage.defaultMessage(p,Messages.stateMessage2);
             } else if(sender instanceof ConsoleCommandSender) {
                 ConsoleMessages.defaultMessage("HealthManager2 by jandie1505");
                 ConsoleMessages.defaultMessage("Version: " + Main.version);
@@ -34,8 +34,8 @@ public class CommandHealthmanager implements CommandExecutor {
                     if(sender instanceof Player){
                         Player p = (Player) sender;
                         if(p.hasPermission("healthmanager.help")){
-                            for(int i = 0;i<ChatMessages.helpMessage.length;i++){
-                                p.sendMessage(ChatMessages.helpMessage[i]);
+                            for(int i = 0; i< Messages.helpMessage.length; i++){
+                                SendMessage.defaultMessage(p,Messages.helpMessage[i]);
                             }
                         }
                     } else if(sender instanceof ConsoleCommandSender) {
@@ -47,14 +47,14 @@ public class CommandHealthmanager implements CommandExecutor {
                         Player p = (Player) sender;
                         if(p.hasPermission("healthmanager.reload")){
                             Config.load();
-                            ChatMessages.load();
+                            Messages.load();
                             PlaceholderMessages.load();
-                            p.sendMessage(ChatMessages.prefix + "Reload complete");
+                            SendMessage.defaultMessage(p,Messages.prefix + "Reload complete");
                         }
 
                     } else if(sender instanceof ConsoleCommandSender) {
                         Config.load();
-                        ChatMessages.load();
+                        Messages.load();
                         ConsoleMessages.defaultMessage("Reload complete");
                     }
                     break;
@@ -62,16 +62,16 @@ public class CommandHealthmanager implements CommandExecutor {
                     if(sender instanceof Player){
                         Player p = (Player) sender;
                         if(!Main.ignoreop && p.isOp() || p.hasPermission("healthmanager.reset")){
-                            p.sendMessage(ChatMessages.wrongSyntax);
+                            SendMessage.defaultMessage(p,Messages.wrongSyntax);
                         } else {
-                            p.sendMessage(ChatMessages.nopermission);
+                            SendMessage.defaultMessage(p,Messages.nopermission);
                         }
                     }
                 default:
 
                     if(sender instanceof Player){
                         Player p = (Player) sender;
-                        p.sendMessage(ChatMessages.commandNotFound);
+                        SendMessage.defaultMessage(p,Messages.commandNotFound);
                     } else if(sender instanceof ConsoleCommandSender) {
                         ConsoleMessages.defaultMessage("Command not found");
                     }
@@ -89,15 +89,15 @@ public class CommandHealthmanager implements CommandExecutor {
                                     target.resetMaxHealth();
                                     TaskSaturationmode.resetPlayer(target);
                                     TaskGodmode.resetPlayer(target);
-                                    p.sendMessage(ChatMessages.getPlayerreset(target.getName()));
+                                    SendMessage.defaultMessage(p,Messages.getPlayerreset(target.getName()));
                                     if(Config.sendMessagesToTarget){
-                                        target.sendMessage(ChatMessages.playerresettarget);
+                                        SendMessage.defaultMessage(target,Messages.playerresettarget);
                                     }
                                 } else {
-                                    p.sendMessage(ChatMessages.playernotfound);
+                                    SendMessage.defaultMessage(p,Messages.playernotfound);
                                 }
                             } catch(Exception e){
-                                p.sendMessage(ChatMessages.wrongSyntax);
+                                SendMessage.defaultMessage(p,Messages.wrongSyntax);
                             }
                         }
                     }
@@ -105,7 +105,7 @@ public class CommandHealthmanager implements CommandExecutor {
                 default:
                     if(sender instanceof Player){
                         Player p = (Player) sender;
-                        p.sendMessage(ChatMessages.commandNotFound);
+                        SendMessage.defaultMessage(p,Messages.commandNotFound);
                     } else if(sender instanceof ConsoleCommandSender) {
                         ConsoleMessages.defaultMessage("Command not found");
                     }

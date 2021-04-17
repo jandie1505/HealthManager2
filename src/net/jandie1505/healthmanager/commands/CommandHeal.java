@@ -1,17 +1,16 @@
 package net.jandie1505.healthmanager.commands;
 
-import net.jandie1505.healthmanager.messages.ChatMessages;
+import net.jandie1505.healthmanager.messages.Messages;
 import net.jandie1505.healthmanager.main.Config;
 import net.jandie1505.healthmanager.messages.ConsoleMessages;
 import net.jandie1505.healthmanager.main.Main;
+import net.jandie1505.healthmanager.messages.SendMessage;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
-
-import java.util.function.Function;
 
 public class CommandHeal implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
@@ -23,9 +22,9 @@ public class CommandHeal implements CommandExecutor {
                     p.setHealth(maxHealth);
                     p.setFoodLevel(20);
                     p.setSaturation(20);
-                    p.sendMessage(ChatMessages.healmessage);
+                    SendMessage.defaultMessage(p,Messages.healmessage);
                 } else {
-                    p.sendMessage(ChatMessages.nopermission);
+                    SendMessage.defaultMessage(p,Messages.nopermission);
                 }
             } else if(args.length == 1){
                 if(!Main.ignoreop && p.isOp() || p.hasPermission("healthmanager.heal.others")){
@@ -36,14 +35,14 @@ public class CommandHeal implements CommandExecutor {
                         target.setFoodLevel(20);
                         target.setSaturation(20);
                         if(Config.sendMessagesToTarget){
-                            target.sendMessage(ChatMessages.healmessage);
+                            SendMessage.defaultMessage(target,Messages.healmessage);
                         }
-                        p.sendMessage(ChatMessages.getHealMessageOthers(target.getName()));
+                        SendMessage.defaultMessage(p,Messages.getHealMessageOthers(target.getName()));
                     } else {
-                        p.sendMessage(ChatMessages.playernotfound);
+                        SendMessage.defaultMessage(p,Messages.playernotfound);
                     }
                 } else {
-                    p.sendMessage(ChatMessages.nopermission);
+                    SendMessage.defaultMessage(p,Messages.nopermission);
                 }
             }
 
@@ -57,14 +56,14 @@ public class CommandHeal implements CommandExecutor {
                     target.setFoodLevel(20);
                     target.setSaturation(20);
                     if(Config.sendMessagesToTarget){
-                        target.sendMessage(ChatMessages.healmessage);
+                        SendMessage.defaultMessage(target,Messages.healmessage);
                     }
-                    ConsoleMessages.noPrefixMessage(ChatMessages.getHealMessageOthers(target.getName()));
+                    ConsoleMessages.defaultMessage(Messages.getHealMessageOthers(target.getName()));
                     } else {
-                        ConsoleMessages.noPrefixMessage(ChatMessages.playernotfound);
+                        ConsoleMessages.defaultMessage(Messages.playernotfound);
                     }
             } else {
-                ConsoleMessages.defaultMessage(ChatMessages.wrongSyntax);
+                ConsoleMessages.defaultMessage(Messages.wrongSyntax);
             }
         }
         return true;

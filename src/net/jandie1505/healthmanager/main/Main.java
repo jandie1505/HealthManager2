@@ -1,9 +1,8 @@
 package net.jandie1505.healthmanager.main;
 
 import net.jandie1505.healthmanager.commands.*;
-import net.jandie1505.healthmanager.commands.*;
 import net.jandie1505.healthmanager.expansions.ExpansionPlaceholderAPI;
-import net.jandie1505.healthmanager.messages.ChatMessages;
+import net.jandie1505.healthmanager.messages.Messages;
 import net.jandie1505.healthmanager.messages.ConsoleMessages;
 import net.jandie1505.healthmanager.messages.PlaceholderMessages;
 import net.jandie1505.healthmanager.tasks.TaskGodmode;
@@ -39,7 +38,7 @@ public class Main extends JavaPlugin {
         //PlaceholderMessages.load();
         createCustomConfig();
         Config.load();
-        ChatMessages.load();
+        Messages.load();
         PlaceholderMessages.load();
         ignoreop = Config.ignoreOp;
 

@@ -1,8 +1,9 @@
 package net.jandie1505.healthmanager.commands;
 
-import net.jandie1505.healthmanager.messages.ChatMessages;
+import net.jandie1505.healthmanager.messages.Messages;
 import net.jandie1505.healthmanager.main.Main;
 import net.jandie1505.healthmanager.messages.ConsoleMessages;
+import net.jandie1505.healthmanager.messages.SendMessage;
 import net.jandie1505.healthmanager.tasks.TaskGodmode;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -19,13 +20,13 @@ public class CommandGod implements CommandExecutor {
                 if(!Main.ignoreop && p.isOp() || p.hasPermission("healthmanager.godmode") || p.hasPermission("healthmanager.godmode.others")){
                     if(!TaskGodmode.checkGodmodeIsEnabled(p)){
                         TaskGodmode.setGodmodeEnabled(p);
-                        p.sendMessage(ChatMessages.godmodeEnabledMessage);
+                        SendMessage.defaultMessage(p,Messages.godmodeEnabledMessage);
                     } else {
                         TaskGodmode.setGodmodeDisabled(p);
-                        p.sendMessage(ChatMessages.godmodeDisabledMessage);
+                        SendMessage.defaultMessage(p,Messages.godmodeDisabledMessage);
                     }
                 } else {
-                    p.sendMessage(ChatMessages.nopermission);
+                    SendMessage.defaultMessage(p,Messages.nopermission);
                 }
             } else if(args.length == 1){
                 if(!Main.ignoreop && p.isOp() || p.hasPermission("healthmanager.godmode.others")){
@@ -34,20 +35,20 @@ public class CommandGod implements CommandExecutor {
                         if(target != null){
                             if(!TaskGodmode.checkGodmodeIsEnabled(target)){
                                 TaskGodmode.setGodmodeEnabled(target);
-                                p.sendMessage(ChatMessages.getGodmodeEnabledOthersMessage(target.getName()));
+                                SendMessage.defaultMessage(p,Messages.getGodmodeEnabledOthersMessage(target.getName()));
                             } else {
                                 TaskGodmode.setGodmodeDisabled(target);
-                                p.sendMessage(ChatMessages.getGodmodeDisabledOthersMessage(target.getName()));
+                                SendMessage.defaultMessage(p,Messages.getGodmodeDisabledOthersMessage(target.getName()));
                             }
                         }
                     } catch(Exception e){
-                        p.sendMessage(ChatMessages.wrongSyntax);
+                        SendMessage.defaultMessage(p,Messages.wrongSyntax);
                     }
                 } else {
-                    p.sendMessage(ChatMessages.nopermission);
+                    SendMessage.defaultMessage(p,Messages.nopermission);
                 }
             } else {
-                p.sendMessage(ChatMessages.wrongSyntax);
+                SendMessage.defaultMessage(p,Messages.wrongSyntax);
             }
         } else if(sender instanceof ConsoleCommandSender){
             if(args.length == 1) {
@@ -56,16 +57,16 @@ public class CommandGod implements CommandExecutor {
                     if(target != null){
                         if(!TaskGodmode.checkGodmodeIsEnabled(target)){
                             TaskGodmode.setGodmodeEnabled(target);
-                            ConsoleMessages.noPrefixMessage(ChatMessages.getGodmodeEnabledOthersMessage(target.getName()));
+                            ConsoleMessages.noPrefixMessage(Messages.getGodmodeEnabledOthersMessage(target.getName()));
                         } else {
                             TaskGodmode.setGodmodeDisabled(target);
-                            ConsoleMessages.noPrefixMessage(ChatMessages.getGodmodeDisabledOthersMessage(target.getName()));
+                            ConsoleMessages.noPrefixMessage(Messages.getGodmodeDisabledOthersMessage(target.getName()));
                         }
                     } else {
-                        ConsoleMessages.noPrefixMessage(ChatMessages.playernotfound);
+                        ConsoleMessages.noPrefixMessage(Messages.playernotfound);
                     }
                 } catch(Exception e){
-                    ConsoleMessages.noPrefixMessage(ChatMessages.wrongSyntax);
+                    ConsoleMessages.noPrefixMessage(Messages.wrongSyntax);
                 }
             }
 

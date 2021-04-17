@@ -1,8 +1,9 @@
 package net.jandie1505.healthmanager.commands;
 
-import net.jandie1505.healthmanager.messages.ChatMessages;
+import net.jandie1505.healthmanager.messages.Messages;
 import net.jandie1505.healthmanager.messages.ConsoleMessages;
 import net.jandie1505.healthmanager.main.Main;
+import net.jandie1505.healthmanager.messages.SendMessage;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -19,33 +20,33 @@ public class CommandGethunger implements CommandExecutor {
                     Player target = Bukkit.getPlayer(args[0]);
                     try {
                         if(target != null){
-                            p.sendMessage(ChatMessages.getGethungerMessage(target.getName(), target.getFoodLevel()));
+                            SendMessage.defaultMessage(p,Messages.getGethungerMessage(target.getName(), target.getFoodLevel()));
                         } else {
-                            p.sendMessage(ChatMessages.playernotfound);
+                            SendMessage.defaultMessage(p,Messages.playernotfound);
                         }
                     } catch (Exception e) {
-                        p.sendMessage(ChatMessages.wrongSyntax);
+                        SendMessage.defaultMessage(p,Messages.wrongSyntax);
                     }
                 } else {
-                    p.sendMessage(ChatMessages.wrongSyntax);
+                    SendMessage.defaultMessage(p,Messages.wrongSyntax);
                 }
             } else {
-                p.sendMessage(ChatMessages.nopermission);
+                SendMessage.defaultMessage(p,Messages.nopermission);
             }
         } else if(sender instanceof ConsoleCommandSender){
             if(args.length == 1){
                 Player target = Bukkit.getPlayer(args[0]);
                 try {
                     if(target != null){
-                        ConsoleMessages.noPrefixMessage(ChatMessages.getGethungerMessage(target.getName(), target.getFoodLevel()));
+                        ConsoleMessages.noPrefixMessage(Messages.getGethungerMessage(target.getName(), target.getFoodLevel()));
                     } else {
-                        ConsoleMessages.noPrefixMessage(ChatMessages.playernotfound);
+                        ConsoleMessages.noPrefixMessage(Messages.playernotfound);
                     }
                 } catch (Exception e) {
-                    ConsoleMessages.noPrefixMessage(ChatMessages.wrongSyntax);
+                    ConsoleMessages.noPrefixMessage(Messages.wrongSyntax);
                 }
             } else {
-                ConsoleMessages.noPrefixMessage(ChatMessages.wrongSyntax);
+                ConsoleMessages.noPrefixMessage(Messages.wrongSyntax);
             }
         }
         return true;

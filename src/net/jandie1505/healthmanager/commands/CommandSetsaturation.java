@@ -1,9 +1,10 @@
 package net.jandie1505.healthmanager.commands;
 
-import net.jandie1505.healthmanager.messages.ChatMessages;
+import net.jandie1505.healthmanager.messages.Messages;
 import net.jandie1505.healthmanager.main.Config;
 import net.jandie1505.healthmanager.messages.ConsoleMessages;
 import net.jandie1505.healthmanager.main.Main;
+import net.jandie1505.healthmanager.messages.SendMessage;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -22,21 +23,21 @@ public class CommandSetsaturation implements CommandExecutor {
                         int setSaturation = Integer.parseInt(args[1]);
                         if(target != null){
                             target.setSaturation(setSaturation);
-                            p.sendMessage(ChatMessages.getSetsaturationMessage(target.getName(), setSaturation));
+                            SendMessage.defaultMessage(p,Messages.getSetsaturationMessage(target.getName(), setSaturation));
                             if(Config.sendMessagesToTarget){
-                                target.sendMessage(ChatMessages.getSetsaturationTargetMessage(setSaturation));
+                                SendMessage.defaultMessage(target,Messages.getSetsaturationTargetMessage(setSaturation));
                             }
                         } else {
-                            p.sendMessage(ChatMessages.playernotfound);
+                            SendMessage.defaultMessage(p,Messages.playernotfound);
                         }
                     } catch (Exception e){
-                        p.sendMessage(ChatMessages.wrongSyntax);
+                        SendMessage.defaultMessage(p,Messages.wrongSyntax);
                     }
                 } else {
-                    p.sendMessage(ChatMessages.wrongSyntax);
+                    SendMessage.defaultMessage(p,Messages.wrongSyntax);
                 }
             } else {
-                p.sendMessage(ChatMessages.nopermission);
+                SendMessage.defaultMessage(p,Messages.nopermission);
             }
         } else if(sender instanceof ConsoleCommandSender){
             if(args.length == 2){
@@ -45,18 +46,18 @@ public class CommandSetsaturation implements CommandExecutor {
                     int setSaturation = Integer.parseInt(args[1]);
                     if(target != null) {
                         target.setSaturation(setSaturation);
-                        ConsoleMessages.noPrefixMessage(ChatMessages.getSetsaturationMessage(target.getName(), setSaturation));
+                        ConsoleMessages.noPrefixMessage(Messages.getSetsaturationMessage(target.getName(), setSaturation));
                         if(Config.sendMessagesToTarget){
-                            target.sendMessage(ChatMessages.getSetsaturationTargetMessage(setSaturation));
+                            SendMessage.defaultMessage(target,Messages.getSetsaturationTargetMessage(setSaturation));
                         }
                     } else {
-                        ConsoleMessages.noPrefixMessage(ChatMessages.playernotfound);
+                        ConsoleMessages.noPrefixMessage(Messages.playernotfound);
                     }
                 } catch(Exception e) {
-                    ConsoleMessages.noPrefixMessage(ChatMessages.wrongSyntax);
+                    ConsoleMessages.noPrefixMessage(Messages.wrongSyntax);
                 }
             } else {
-                ConsoleMessages.noPrefixMessage(ChatMessages.wrongSyntax);
+                ConsoleMessages.noPrefixMessage(Messages.wrongSyntax);
             }
         }
         return true;
