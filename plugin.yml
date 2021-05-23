@@ -56,3 +56,92 @@ commands:
     description: Turn Godmode on/off for yourself (and other players)
     usage: /god (<Player>)
     permission: healthmanager.godmode
+permissions:
+  healthmanager.help:
+    description: Allows healthmanager help command
+    default: op
+  healthmanager.reload:
+    description: Allows healthmanager reload command
+    default: op
+  healthmanager.reset:
+    description: Allows healthmanager reset command
+    default: op
+  healthmanager.heal:
+    description: Allows heal command for self use
+    default: op
+  healthmanager.heal.others:
+    description: Allows heal command for self and other players
+    default: op
+    children:
+      healthmanager.heal: true
+  healthmanager.sethealth:
+    description: Allows sethealth command
+    default: op
+  healthmanager.setmaxhealth:
+    description: Allows sethealth command
+    default: op
+  healthmanager.gethealth:
+    description: Allows gethealth command
+    default: op
+  healthmanager.getmaxhealth:
+    description: Allows getmaxhealth command
+    default: op
+  healthmanager.feed:
+    description: Allows feed command for self use
+    default: op
+  healthmanager.feed.others:
+    description: Allows feed command for self and others
+    default: op
+    children:
+      healthmanager.feed: true
+  healthmanager.sethunger:
+    description: Allows sethunger command
+    default: op
+  healthmanager.gethunger:
+    description: Allows gethunger command
+    default: op
+  healthmanager.setsaturation:
+    description: Allows setsaturation command
+    default: op
+  healthmanager.getsaturation:
+    description: Allows getsaturation command
+    default: op
+  healthmanager.saturation:
+    description: Allows saturation mode command for self use
+    default: op
+  healthmanager.saturation.others:
+    description: Allows saturation mode command for self and other players
+    default: op
+    children:
+      healthmanager.saturation: true
+  healthmanager.god:
+    description: Allows god mode command for self use
+    default: op
+  healthmanager.god.others:
+    description: Allows god mode command for self and other players
+    default: op
+    children:
+      healthmanager.god: true
+  healthmanager.*:
+    description: Grant access to all commands
+    default: op
+    children:
+      healthmanager.help: true
+      healthmanager.reload: true
+      healthmanager.reset: true
+      healthmanager.heal: true
+      healthmanager.heal.others: true
+      healthmanager.sethealth: true
+      healthmanager.setmaxhealth: true
+      healthmanager.gethealth: true
+      healthmanager.getmaxhealth: true
+      healthmanager.feed: true
+      healthmanager.feed.others: true
+      healthmanager.sethunger: true
+      healthmanager.gethunger: true
+      healthmanager.setsaturation: true
+      healthmanager.getsaturation: true
+      healthmanager.saturation: true
+      healthmanager.saturation.others: true
+      healthmanager.god: true
+      healthmanager.god.others: true
